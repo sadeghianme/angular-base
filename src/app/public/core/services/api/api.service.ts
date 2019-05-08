@@ -22,6 +22,7 @@ export class ApiService {
     private messageBox: SnackBarService,
     private router: Router,
   ) { }
+
   getInfo() {
     return JSON.parse(JSON.stringify(info));
   }
