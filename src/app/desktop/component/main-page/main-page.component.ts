@@ -7,12 +7,14 @@ declare const $: any;
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-
+  theme = 'default-theme';
   constructor() {
     $('.initiate-loading').fadeOut();
   }
 
   ngOnInit() {
   }
+
+
 
 }

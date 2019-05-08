@@ -28,7 +28,8 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/style/styles.scss"
+              "src/style/styles.scss",
+              "src/style/theme.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -87,7 +88,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/style/styles.scss"
+              "src/style/styles.scss",
+              "src/style/theme.scss"
             ],
             "scripts": [],
             "assets": [

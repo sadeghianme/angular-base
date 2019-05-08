@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$default-primary: mat-palette($mat-blue, 900);
+$default-accent: mat-palette($mat-indigo, 200);
+$default-theme: mat-light-theme($default-primary, $default-accent);
+.default-theme {
+  @include angular-material-theme($default-theme);
+}
+
+$second-primary: mat-palette($mat-pink, 600);
+$second-accent: mat-palette($mat-pink, 200);
+$second-theme: mat-light-theme($second-primary, $second-accent);
+.second-theme {
+  @include angular-material-theme($second-theme);
+  @include mat-button-theme($second-theme);
+}
+
+$third-primary: mat-palette($mat-blue, 800);
+$third-accent: mat-palette($mat-grey, 50);
+$third-theme: mat-dark-theme($third-primary, $third-accent);
+.third-theme {
+  @include angular-material-theme($third-theme);
+  @include mat-button-theme($third-theme);
+}
+
+$forth-primary: mat-palette($mat-pink, 800);
+$forth-accent: mat-palette($mat-grey, 500);
+$forth-theme: mat-dark-theme($forth-primary, $forth-accent);
+.forth-theme {
+  @include angular-material-theme($forth-theme);
+  @include mat-button-theme($forth-theme);
+}

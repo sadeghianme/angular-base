@@ -1,0 +1,24 @@
+@import "~src/style/mixin.scss";
+.toolbar {
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+}
+.toolbar-row {
+  @include flex-content(space-between);
+}
+.toolbar-row-right {
+  width: 200px;
+  height: 100%;
+  border-left: 1px solid #ffffff73;
+  @include flex-content();
+}
+.toolbar-row-right-account {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ffffff73;
+}
+.menu-item-btn {
+    @include flex-content();
+}

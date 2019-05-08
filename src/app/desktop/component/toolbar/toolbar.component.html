@@ -1,5 +1,22 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row style="padding: 0 10px">
-    <ng-content></ng-content>
+<mat-toolbar class="toolbar" color="primary">
+  <mat-toolbar-row class="toolbar-row" style="padding: 0 10px">
+    <div class="toolbar-row-left" i18n>{{title}}</div>
+    <div class="toolbar-row-right">
+      <i style="margin-right: 12px" class="material-icons">notifications</i>
+      <i style="margin-right: 12px" class="material-icons">{{screenMode}}</i>
+      <button style="margin-right: 12px" mat-icon-button [matMenuTriggerFor]="menu">
+        <i class="material-icons">format_color_fill</i>
+      </button>
+      <mat-menu class="menu-item" #menu="matMenu">
+        <button mat-menu-item *ngFor="let item of colorStyle" (click)="changeTheme(item)">
+          <i class="material-icons" [style.color]="item.color">
+            {{item.icon}}
+          </i>
+            {{item.label}}
+        </button>
+      </mat-menu>
+      <div class="toolbar-row-right-account"></div>
+      <i class="material-icons">keyboard_arrow_down</i>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
