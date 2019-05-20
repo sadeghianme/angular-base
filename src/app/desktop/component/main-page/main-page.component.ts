@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LanguageService} from '../../../public/core/services/language/language.service';
 
 declare const $: any;
 @Component({
@@ -8,7 +9,9 @@ declare const $: any;
 })
 export class MainPageComponent implements OnInit {
   theme = 'default-theme';
-  constructor() {
+  constructor(
+    public lang: LanguageService
+  ) {
     $('.initiate-loading').fadeOut();
   }
 

@@ -1,6 +1,4 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
-// import {LoginStateService} from '../../../core/services/loginState/login-state.service';
-// import {CommonService} from '../../../core/services/common/common.service';
 
 @Component({
   selector: 'app-button',
@@ -12,11 +10,14 @@ export class ButtonComponent implements OnInit {
   btnId = '';
 
   @Input() bgColor = '';
+  @Input() radiusBorder = 0;
   @Input() textColor = '';
   @Input() textSize = '';
   @Input() iconSize = '';
+  @Input() iconColor = '';
   @Input() value = '';
   @Input() isDisabled = false;
+  @Input() iconInRight = false;
   @Input() iconName = '';
   @Input() tooltip = '';
   @Input() size = { height: '', width: '' };
@@ -32,10 +33,10 @@ export class ButtonComponent implements OnInit {
   }
 
   click() {
+    console.log('22', this.bgColor)
     // this.spinnerId = this.common.generateRandomString();
     // this.btnId = this.common.generateRandomString();
-    // console.log('id******************', this.spinnerId, this.btnId);
-    // this.loginState.spinnerId = {spinnerId: '#' + this.spinnerId, btnId: '#' + this.btnId};
+    // this.loginState.spinnerId.push({spinnerId: '#' + this.spinnerId, btnId: '#' + this.btnId});
     this.clickButton.emit();
   }
 

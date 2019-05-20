@@ -1,74 +1,111 @@
-<div class="button" [ngStyle]="{'width': size.width, 'min-width': size.width, 'height': size.height}">
-  <button class="button-style" mat-raised-button
-          *ngIf="btnType === 'default'"
-          [style.background-color]="bgColor"
-          [style.color]="textColor"
-          [matTooltip]="tooltip"
-          [ngStyle]="{'width': size.width, 'min-width': size.width, 'height': size.height}"
-          color="bgColor"
-          disabled="{{isDisabled}}"
-          style.cursor="{{isDisabled?'not-allowed':null}}"
-          style.font-size="{{textSize}}"
-          (click)="click()"
-          style.width="{{size.width}}">
-    {{value}}
-    <i *ngIf="iconName"  style.font-size="{{iconSize}}" class="material-icons">{{iconName}}</i>
-  </button>
+<div class="button" [ngStyle]="{'width': size.width, 'min-width': size.width, 'height': size.height, 'min-height': size.height}">
+  <ng-container *ngIf="btnType === 'default'">
+    <button class="button-style" mat-raised-button
+            [style.background-color]="bgColor"
+            [style.color]="textColor"
+            [matTooltip]="tooltip"
+            [ngStyle]="{'width': size.width, 'min-width': size.width, 'height': size.height}"
+            [disabled]="isDisabled"
+            [style.cursor]="isDisabled?'not-allowed':null"
+            [style.font-size]="textSize"
+            (click)="click()"
+            [style.width]="size.width">
+      <i *ngIf="iconName&&iconInRight"
+         [style.font-size]="iconSize"
+         [style.color]="isDisabled?'#72727261':iconColor||textColor||'#727272'"
+         class="material-icons">{{iconName}}</i>
+      {{value}}
+      <i *ngIf="iconName&&!iconInRight"
+         [style.font-size]="iconSize"
+         [style.color]="isDisabled?'#72727261':iconColor||textColor||'#727272'"
+         class="material-icons">{{iconName}}</i>
+    </button>
+  </ng-container>
 
-  <button mat-button
-          *ngIf="btnType === 'simple'||btnType == 'circle-simple'||btnType == 'square-simple'"
-          disabled="{{isDisabled}}"
+  <ng-container  *ngIf="btnType === 'simple'||btnType == 'circle-simple'||btnType == 'square-simple'">
+    <button mat-button
+          [disabled]="isDisabled"
           (click)="click()"
           [class.circle-button]="btnType === 'circle-simple'"
           [class.square-button]="btnType === 'square-simple'"
           [ngStyle]="{'width': size.width, 'min-width': size.width, 'height': size.height}"
-          style.background-color="{{bgColor}}"
+          [style.background-color]="bgColor"
           [matTooltipPosition]="'below'"
-          matTooltip="{{tooltip}}">
+          [matTooltip]="tooltip">
+    <i *ngIf="iconName&&iconInRight"
+       [style.font-size]="iconSize"
+       [style.color]="isDisabled?'#72727261':iconColor||textColor||'#727272'"
+       class="material-icons">{{iconName}}</i>
     {{value}}
-    <i *ngIf="iconName"
-       style.font-size="{{iconSize}}"
-       [style.color]="isDisabled?'#72727261':textColor||'#727272'"
+    <i *ngIf="iconName&&!iconInRight"
+       [style.font-size]="iconSize"
+       [style.color]="isDisabled?'#72727261':iconColor||textColor||'#727272'"
        class="material-icons">{{iconName}}</i>
   </button>
+  </ng-container>
 
-  <button class="button-style button-icon"
-          *ngIf="btnType === 'icon-border'"
-          mat-mini-fab style.background-color="{{bgColor}}"
-          style.color="{{textColor}}"
-          matTooltip="{{tooltip}}"
-          color="{{bgColor}}"
-          (click)="click()"
-          style.cursor="{{isDisabled?'not-allowed':null}}"
-          disabled="{{isDisabled}}">
-    <i style.font-size="{{iconSize}}" class="material-icons">{{iconName}}</i>
-  </button>
+  <ng-container  *ngIf="btnType === 'icon-border'">
+    <button class="button-style button-icon"
+            mat-mini-fab
+            [style.background-color]="bgColor"
+            [style.color]="textColor"
+            [matTooltip]="tooltip"
+            [color]="bgColor"
+            (click)="click()"
+            [style.cursor]="isDisabled?'not-allowed':null"
+            [disabled]="isDisabled">
+      <i [style.font-size]="iconSize"
+         [style.color]="isDisabled?'#72727261':iconColor||textColor||'#727272'"
+         class="material-icons">{{iconName}}</i>
+    </button>
+  </ng-container>
 
-  <button class="button-style button-icon"
-          *ngIf="btnType === 'icon'"
-          mat-icon-button
-          style.background-color="{{bgColor}}"
-          style.color="{{textColor}}"
-          matTooltip="{{tooltip}}"
-          color="{{bgColor}}"
-          (click)="click()"
-          style.cursor="{{isDisabled?'not-allowed':null}}"
-          disabled="{{isDisabled}}">
-    <i style.font-size="{{iconSize}}" class="material-icons">{{iconName}}</i>
-  </button>
+  <ng-container *ngIf="btnType === 'icon'">
+    <button class="button-style button-icon"
+            mat-icon-button
+            [style.background-color]="bgColor"
+            [style.color]="textColor"
+            [matTooltip]="tooltip"
+            (click)="click()"
+            [style.cursor]="isDisabled?'not-allowed':null"
+            [disabled]="isDisabled">
+      <i [style.font-size]="iconSize"
+         [style.color]="isDisabled?'#72727261':iconColor||textColor||'#727272'"
+         class="material-icons">{{iconName}}</i>
+    </button>
+  </ng-container>
 
-  <button *ngIf="btnType === 'custom'"
-          mat-button
-          style.background-color="{{bgColor}}"
-          style.color="{{textColor}}"
-          matTooltip="{{tooltip}}"
-          color="{{bgColor}}"
-          (click)="click()"
-          [ngStyle]="{'width': size.width, 'min-width': size.width, 'height': size.height}"
-          style.cursor="{{isDisabled?'not-allowed':null}}"
-          disabled="{{isDisabled}}">
-    <ng-content select="[btn-content]"></ng-content>
-  </button>
+  <ng-container *ngIf="btnType === 'simple-icon'">
+    <button class="button-simple-icon"
+            [style.background-color]="bgColor"
+            [style.color]="textColor"
+            [matTooltip]="tooltip"
+            (click)="click()"
+            [style.cursor]="isDisabled?'not-allowed':null"
+            [disabled]="isDisabled">
+      <i [style.font-size]="iconSize"
+         [style.color]="isDisabled?'#72727261':iconColor||textColor||'#727272'"
+         class="material-icons">{{iconName}}</i>
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="btnType === 'custom'">
+    <button
+      mat-button
+      [style.background-color]="bgColor"
+      [style.color]="textColor"
+      [style.padding]="0"
+      [style.border-radius]="radiusBorder"
+      [matTooltip]="tooltip"
+      [color]="bgColor"
+      (click)="click()"
+      [ngStyle]="{'width': size.width, 'min-width': size.width, 'height': size.height}"
+      [style.cursor]="isDisabled?'not-allowed':null"
+      [disabled]="isDisabled">
+      <ng-content select="[btn-content]"></ng-content>
+    </button>
+  </ng-container>
+
   <div id="{{btnId}}" class="btn-disable"></div>
   <!--<mat-spinner id="{{spinnerId}}" [diameter]="25" class="btn-spinner"></mat-spinner>-->
   <div  id="{{spinnerId}}" class="sk-fading-circle btn-spinner">

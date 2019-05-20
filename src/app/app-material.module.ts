@@ -25,18 +25,18 @@ import {
   MatProgressSpinnerModule,
   MatRadioModule,
   MatButtonToggleModule,
-  MatTreeModule, MatDatepickerModule, MatFormFieldModule, MatCardModule
+  MatTreeModule, MatDatepickerModule, MatFormFieldModule, MatCardModule, MatGridListModule
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
-  imports: [MatCardModule, MatIconModule, MatPaginatorModule, MatTableModule, MatButtonModule, MatCheckboxModule, MatInputModule, MatButtonToggleModule,
+  imports: [MatGridListModule, MatCardModule, MatIconModule, MatPaginatorModule, MatTableModule, MatButtonModule, MatCheckboxModule, MatInputModule, MatButtonToggleModule,
     CdkTableModule, MatSortModule, MatDialogModule, MatSnackBarModule, MatStepperModule, MatToolbarModule, MatMenuModule,
     MatTooltipModule, MatSelectModule, MatSlideToggleModule, MatExpansionModule, MatNativeDateModule, MatRadioModule,
     MatTabsModule, MatListModule, MatAutocompleteModule, MatProgressSpinnerModule, MatTreeModule,
     MatDatepickerModule, MatFormFieldModule, FormsModule],
-  exports: [MatCardModule, MatIconModule, MatPaginatorModule, MatTableModule, MatButtonModule, MatCheckboxModule, MatInputModule, MatButtonToggleModule,
+  exports: [MatGridListModule, MatCardModule, MatIconModule, MatPaginatorModule, MatTableModule, MatButtonModule, MatCheckboxModule, MatInputModule, MatButtonToggleModule,
     CdkTableModule, MatSortModule, MatDialogModule, MatSnackBarModule, MatStepperModule, MatToolbarModule, MatMenuModule,
     MatTooltipModule, MatSelectModule, MatSlideToggleModule, MatExpansionModule, MatNativeDateModule, MatRadioModule,
     MatTabsModule, MatListModule, MatAutocompleteModule, MatProgressSpinnerModule, MatTreeModule, DragDropModule,

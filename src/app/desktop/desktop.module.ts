@@ -8,7 +8,6 @@ import { MenuBarComponent } from './component/menu-bar/menu-bar.component';
 import {MaterialModule} from '../app-material.module';
 import {CoreModule} from '../public/core/core.module';
 import {ToolsModule} from '../public/tools/tools.module';
-
 @NgModule({
   declarations: [ MainPageComponent, ToolbarComponent, MenuBarComponent],
   imports: [
@@ -16,7 +15,7 @@ import {ToolsModule} from '../public/tools/tools.module';
     MaterialModule,
     DesktopRoutingModule,
     CoreModule,
-    ToolsModule
+    ToolsModule,
   ]
 })
 export class DesktopModule { }
