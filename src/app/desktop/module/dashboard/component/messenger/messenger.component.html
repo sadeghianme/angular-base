@@ -1,0 +1,55 @@
+<div class="chat">
+  <div class="chat-btn">
+    <app-button iconName="clear" btnType="circle-simple" (clickButton)="closeMessenger()"></app-button>
+    <div class="chat-icon" (click)="chatState='bot'">
+      <i  [style.color]="chatState==='bot'?'darkred':null"  class="fas fa-robot"></i>
+    </div>
+    <div class="chat-icon" (click)="chatState='viber'">
+      <i [style.color]="chatState==='viber'?'rebeccapurple':null" class="fab fa-viber"></i>
+    </div>
+  </div>
+  <ng-container *ngIf="chatState==='bot'">
+    <div class="chat-message" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+      <div class="chat-box" *ngFor="let item of chats">
+        <div class="chat-box-photo">
+          <i  class="fas fa-{{item.icon}}" [style.color]="item.title==='Bot'?'darkred':null"></i>
+        </div>
+        <div class="chat-box-message">
+          <div class="chat-box-message-header">
+            <label class="title">{{item.title}}</label>
+            <label>{{item.time}}</label>
+          </div>
+          <div class="chat-box-message-text">
+            <label>{{item.message}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="chatState==='viber'">
+    <div class="chat-message" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+      <div class="chat-box" *ngFor="let item of viberChats">
+        <div class="chat-box-photo">
+          <i  class="fas fa-{{item.icon}}" [style.color]="item.title==='Viber'?'purple':null"></i>
+        </div>
+        <div class="chat-box-message">
+          <div class="chat-box-message-header">
+            <label class="title">{{item.title}}</label>
+            <label>{{item.time}}</label>
+          </div>
+          <div class="chat-box-message-text">
+            <label>{{item.message}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="chat-message-send">
+    <div class="input">
+      <i class="material-icons attachment chat-input-btn">insert_link</i>
+      <input placeholder="Enter a Message" [(ngModel)]="chatMessage" (keyup.enter)="sentMessage(chatMessage)">
+      <i class="material-icons chat-input-btn">sentiment_satisfied_alt</i>
+    </div>
+  </div>
+</div>
+

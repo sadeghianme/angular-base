@@ -12,7 +12,7 @@ export class ChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data)
+    // console.log(this.data)
     if (this.data && this.data.config) {
       this.init();
     }
@@ -39,6 +39,7 @@ export class ChartComponent implements OnInit {
 
   init() {
     this.chart = new Chart({
+      // colors: ['#2f7ed8', '#910000', '#8bbc21', '#1aadce'],
       chart: {
         reflow: true,
         margin: .5, //removes all margin
@@ -102,6 +103,19 @@ export class ChartComponent implements OnInit {
       },
       credits: {
         enabled: false
+      },
+      plotOptions: {
+        [this.data.config.type]: {
+          zones: [{
+            value: 4, // Values up to 10 (not including) ...
+            color: 'green' // ... have the color blue.
+          }, {
+            value: 9, // Values up to 10 (not including) ...
+            color: 'orange' // ... have the color blue.
+          }, {
+            color: 'darkred' // Values from 10 (including) and up have the color red
+          }]
+        }
       },
       series: [{
         name: '',

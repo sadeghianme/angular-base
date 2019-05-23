@@ -20,10 +20,11 @@ import { MapChartComponent } from './component/widgets/map-chart/map-chart.compo
 import { ChartComponent } from './component/widgets/chart/chart.component';
 import { TableComponent } from './component/widgets/table/table.component';
 import { HeaderWidgetComponent } from './component/widgets/header-widget/header-widget.component';
+import { MessengerComponent } from './component/messenger/messenger.component';
 // exporting(highcharts);
 // offline(highcharts);
 @NgModule({
-  declarations: [DefaultComponent, WidgetBoxComponent, DragComponent, StickyComponent, MapChartComponent, ChartComponent, TableComponent, HeaderWidgetComponent],
+  declarations: [DefaultComponent, WidgetBoxComponent, DragComponent, StickyComponent, MapChartComponent, ChartComponent, TableComponent, HeaderWidgetComponent, MessengerComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

@@ -1,7 +1,7 @@
 @import "~src/style/mixin.scss";
 .dashboard {
   width: 100%;
-  height: 80%;
+  height: 100%;
   background-color: #f4f4f4;
 }
 .dashboard-header {
@@ -40,7 +40,6 @@
   position: relative;
   width: 100%;
   height: calc(100% - 80px);
-  overflow: auto;
 }
 .dashboard-body-left {
   width: 234px;
@@ -48,12 +47,23 @@
   position: sticky;
   top: 0;
   background-color: white;
-  box-shadow: 0 1px 3px 0 gray;
+  box-shadow: 0 3px 3px 0 gray;
   padding: 15px;
   @include flex-content(flex-start, center);
   flex-direction: column;
 }
+.dashboard-body-left-container {
+  width: 100%;
+  height: calc(100% - 75px);
+}
+.dashboard-body-left-btn {
+  height: 5px;
+  width: 100%;
+  @include flex-content(space-between);
+  background-color: white;
+}
 .dashboard-body-left-box {
+  cursor: pointer;
   width: 220px;
   height: 80px;
   border: 1px solid #dddddd;
@@ -61,6 +71,9 @@
   margin: 5px 0;
   padding: 5px;
   @include flex-content(space-between, space-between);
+  &:hover {
+    border: 1px solid #a9a9a9;
+  }
 }
 .dashboard-body-left-box-part1, .dashboard-body-left-box-part2 {
   height: 100%;
@@ -112,65 +125,22 @@
   height: calc(100% - 20px);
   overflow: auto;
   padding: 10px;
+  position: relative;
+  transition: width .1s;
 }
 .dashboard-body-right {
   width: 306px;
   height: 100%;
-  position: sticky;
-  top: 0;
   background-color: white;
-  box-shadow: 0 -1px 3px 0 gray;
-}
-.dashboard-chat-btn {
-  width: 100%;
-  @include flex-content();
-  margin: 20px 0 30px 0;
-  .dashboard-chat-icon {
-    width: 50%;
-    @include flex-content();
-    font-size: 26pt;
-    &:hover .fa-robot {
-      color: darkred;
-    }
-    &:hover .fa-viber {
-      color: rebeccapurple;
-    }
-    i {
-      color: gray;
-    }
-  }
-}
-.chat-box {
-  width: calc(100% - 10px);
-  @include flex-content(space-beetween, flex-start);
-  margin: 15px 5px;
-  .chat-box-photo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    @include flex-content();
-    i {
-      font-size: 30px;
-    }
-  }
-  .chat-box-message {
-    width: calc(100% - 50px);
-    .chat-box-message-header {
-      @include flex-content(space-between);
-      margin: 5px 0;
-      .title {
-        font-weight: bold;
-      }
-    }
-    .chat-box-message-text {
-      text-align: justify;
-    }
-  }
+  box-shadow: 0 3px 3px 0 gray;
+  transition: transform .1s;
 }
 .dashboard-body-addWidget {
-  position: fixed;
+  width: 40px;
+  height: 40px;
+  position: sticky;
   right: 10px;
-  bottom: 10px;
+  bottom: 30px;
   z-index: 9;
   box-shadow: 0 0 3px 0 grey;
   border-radius: 50%;

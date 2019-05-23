@@ -9,60 +9,93 @@ declare const $: any;
   styleUrls: ['./default.component.scss']
 })
 export class DefaultComponent implements OnInit {
-  chatState = 'bot';
   summeries = [
-    {id: '1', title: 'CDC', trend: 0.8, trendStatus: 'green', target: '31%', achievement: '32%', kpiValue: '25.3%', kpiStatus: 'green'},
-    {id: '2', title: 'GC', trend: 0.8, trendStatus: 'green', target: '43%', achievement: '43%', kpiValue: '20%', kpiStatus: 'orange'},
-    {id: '3', title: 'RAM', trend: 0.8, trendStatus: 'green', target: '55%', achievement: '30%', kpiValue: '51%', kpiStatus: 'green'},
-    {id: '4', title: 'Key Kpi O1', trend: 0.8, trendStatus: 'red', target: '33%', achievement: '40%', kpiValue: '5.03%', kpiStatus: 'red'},
-    {id: '5', title: 'Key Kpi O2', trend: 0.8, trendStatus: 'green', target: '38%', achievement: '20%', kpiValue: '15.3%', kpiStatus: 'green'},
+    {id: 1, title: 'CDC', selected: true, trend: 0.8, trendStatus: 'green', target: '31%', achievement: '32%', kpiValue: '25.3%', kpiStatus: 'green'},
+    {id: 2, title: 'GC', trend: 0.8, trendStatus: 'green', target: '43%', achievement: '43%', kpiValue: '20%', kpiStatus: 'orange'},
+    {id: 3, title: 'RAM', trend: 0.8, trendStatus: 'green', target: '55%', achievement: '30%', kpiValue: '51%', kpiStatus: 'green'},
+    {id: 4, title: 'Key Kpi O1', trend: 0.8, trendStatus: 'red', target: '33%', achievement: '40%', kpiValue: '5.03%', kpiStatus: 'red'},
+    {id: 5, title: 'Key Kpi O2', trend: 0.8, trendStatus: 'green', target: '38%', achievement: '20%', kpiValue: '15.3%', kpiStatus: 'green'},
   ];
-  chats = [
-    {title: 'Mehdi', time: '11:20', icon: 'user', message: 'Hello, I have a Problem with this site'},
-    {title: 'Bot', time: '12:30', icon: 'robot', message: 'hello, about your problem, you can follow link www.google.com'},
-    ];
   headerWidgets = [
-    {id: '1', title: 'GC', data: [1, 8, 3], config: {type: 'bar'}},
-    {id: '2', title: 'RAP', data: [1, 80, 2], config: {type: 'bar', title: '', subtitle: '', showTooltip: true,
-        xAxis: {title: '', showLabel: false, categories: null }, yAxis: {title: '', showLabel: false, categories: null  },
+    {id: '1', title: 'RAN', data: [1, 8, 3, 5, 6, 7], type: 'chart', config: {type: 'bar'}},
+    {id: '2', title: 'GC', data: [7, 18, 12, 31, 13, 10], type: 'chart',
+      config: {type: 'bar', title: '', subtitle: '', showTooltip: true,
+        xAxis: {title: 'ppp', showLabel: true, categories: ['q', 'c'] }, yAxis: {title: '', showLabel: true, categories: null  },
         legend: {layout: '', enabled: false, floating: true }}},
 
-    {id: '3', title: 'BH', data: [7, 5, 3], config: {type: 'bar'}},
+    {id: '3', title: 'BH', data: [7, 5, 3, 3, 5, 2], type: 'chart', config: {type: 'bar'}},
+    {id: '4', title: 'CDC', data: [7, 5, 3, 2, 9, 7], type: 'chart', config: {type: 'bar'}},
+    {id: '5', title: 'INET CORE', data: [7, 5, 3, 1, 4, 6], type: 'chart', config: {type: 'bar'}},
     // {id: '4', title: 'CDC', data: [1, 8, 9], config: {type: 'bar'}},
     // {id: '5', title: 'IME CORE', data: [7, 8, 3], config: {type: 'bar'}},
   ];
   widgets = [
-    {id: '3', title: 'Rakuten', width: '340px', height: '320px', type: 'table', visible: true,
+    {id: '1', title: 'Voice', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
+    {id: '2', title: 'Data', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
+    {id: '3', title: 'SMS', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
+
+    {id: '4', title: 'Metrics', width: '320px', minWidth: '32%', height: '320px', type: 'table', visible: true,
       data: {columns: [{text: '', value: 'title'}, {text: 'CPU', value: 'cpu'}, {text: 'RAM', value: 'ram'}, {text: 'Ava.', value: 'ava'}, {text: 'Op. T.', value: 'opt'}],
         rows: [
           {title: 'green', cpu: 'green', ram: 'red', ava: 'green', opt: 'orange'},
-          {title: 'green', cpu: 'orange', ram: 'red', ava: 'green', opt: 'green'},
-          ]}, config: {type: 'icon'}},
-    {id: '3', title: 'Rakuten', width: '340px', height: '320px', type: 'table', visible: true,
-      data: {columns: [{text: '', value: 'title'}, {text: 'Critical', value: 'critical', color: 'red'}, {text: 'Major', value: 'major'}, {text: 'Minor', value: ',minor'}],
+          {title: 'green', cpu: 'orange', ram: 'green', ava: 'red', opt: 'green'},
+          {title: 'red', cpu: 'green', ram: 'green', ava: 'orange', opt: 'green'},
+          {title: 'green', cpu: 'orange', ram: 'green', ava: 'red', opt: 'red'},
+          {title: 'orange', cpu: 'red', ram: 'green', ava: 'red', opt: 'green'},
+          {title: 'green', cpu: 'green', ram: 'red', ava: 'green', opt: 'orange'},
+          {title: 'red', cpu: 'green', ram: 'green', ava: 'orange', opt: 'green'},
+        ]}, config: {type: 'icon'}},
+    {id: '5', title: 'Services', width: '320px', minWidth: '32%', height: '320px', type: 'table', visible: true,
+      data: {columns: [{text: '', value: 'title'},
+          {text: 'Critical', value: 'critical', color: 'red'},
+          {text: 'Major', value: 'major', color: 'orange'},
+          {text: 'Minor', value: 'minor', color: 'green'}],
         rows: [
-          {title: 'green', critical: '543', major: '457', minor: '32'},
-          {title: 'green', critical: '12', major: '34', minor: '345'},
+          {title: 'RAN', critical: '543', major: '457', minor: '32'},
+          {title: 'GC', critical: '132', major: '34', minor: '34'},
+          {title: 'BH', critical: '312', major: '342', minor: '345'},
+          {title: 'CDC', critical: '124', major: '134', minor: '3145'},
+          {title: 'CDC', critical: '512', major: '354', minor: '45'},
+          {title: 'CDC', critical: '162', major: '34', minor: '35'},
+          {title: 'Bo', critical: '12', major: '34', minor: '345'},
           ]}, config: {type: 'text'}},
+    {id: '6', title: 'Alarms', width: '320px', minWidth: '32%', height: '320px', type: 'table', visible: true,
+      data: {columns: [{text: '', value: 'title'},
+          {text: 'RAN', value: 'ran'},
+          {text: 'EPC', value: 'epc'},
+          {text: 'IMS', value: 'ims'}],
+        rows: [
+          {title: 'Data', lists: [
+            {title: 'acc', ran: 'green', epc: 'red', ims: 'orange'},
+            {title: 'rel', ran: 'orange', epc: 'green', ims: 'green'},
+            ]},
+          {title: 'Voice', lists: [
+              {title: 'acc', ran: 'green', epc: 'green', ims: 'red'},
+              {title: 'rel', ran: 'orange', epc: 'green', ims: 'green'},
+            ]},
+          {title: 'Viop', lists: [
+              {title: 'acc', ran: 'red', epc: 'green', ims: 'green'},
+              {title: 'rel', ran: 'green', epc: 'red', ims: 'orange'},
+            ]}
+          ]}, config: {type: 'nested'}},
 
-    {id: '1', title: 'RAP', width: '320px', height: '280px', type: 'chart', visible: true, data: [1, 2, 4],
-     config: {type: 'line', title: 'one', xAxis: {title: 'xxx', showLabel: true, categories: null },
-       yAxis: {title: 'yyy', showLabel: true, categories: null  },
-       legend: {layout: '', enabled: true, floating: true }}},
-   {id: '1.1', title: 'RAP', width: '320px', height: '280px', type: 'chart', visible: true, data: [5, 3, 1],
-     config: {type: 'pie'}},
-   {id: '1.2', title: 'RAP', width: '320px', height: '280px', type: 'chart', visible: true, data: [3, 12, 7],
-     config: {type: 'column', yAxis: {title: 'row', showLabel: true}, xAxis: {title: 'row', showLabel: true}}},
-   // {id: '3', title: 'Rakuten', width: '340px', height: '320px', type: '', visible: true, data: [], config: {type: 'map', }},
-   // {id: '2', title: 'RCS', width: '220px', height: '320px', type: '', visible: true, data: {value: 175, unit: 'Mb'}, config: {type: 'sticky' }},
-   // {id: '4', title: 'IMS', width: '320px', height: '320px', type: '', visible: true, data: {value: 700, unit: 'Gb/sub'}, config: {type: 'sticky'}},
-   // {id: '5', title: 'IMS2', width: '390px', height: '205px', type: '', visible: false, data: {value: '158600sub'}, config: {type: 'sticky' }},
+   //  {id: '1', title: 'RAP', width: '320px', height: '280px', type: 'chart', visible: true, data: [1, 2, 4],
+   //   config: {type: 'line', title: 'one', xAxis: {title: 'xxx', showLabel: true, categories: null },
+   //     yAxis: {title: 'yyy', showLabel: true, categories: null  },
+   //     legend: {layout: '', enabled: true, floating: true }}},
+   // {id: '1.1', title: 'RAP', width: '320px', height: '280px', type: 'chart', visible: true, data: [5, 3, 1],
+   //   config: {type: 'pie'}},
+   // {id: '1.2', title: 'RAP', width: '320px', height: '280px', type: 'chart', visible: true, data: [3, 12, 7],
+   //   config: {type: 'column', yAxis: {title: 'row', showLabel: true}, xAxis: {title: 'row', showLabel: true}}},
+
    {id: '6', title: 'RAN', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
-   {id: '7', title: 'GC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
-   {id: '8', title: 'CDC-vIMS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
- {id: '6', title: 'RAN', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
-   {id: '7', title: 'GC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
-   {id: '8', title: 'CDC-vIMS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
+   {id: '7', title: 'Backhaul', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
+   {id: '8', title: 'GC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
+ {id: '6', title: 'CDC-vIMS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
+   {id: '7', title: 'CDC-vEPC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
+   {id: '8', title: 'CDC-vRCS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
+   {id: '8', title: 'INET Core', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
+   {id: '8', title: 'IoT', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
   ];
   menus = [
     {
@@ -147,9 +180,11 @@ export class DefaultComponent implements OnInit {
       ]
     }
   ];
-
+  chatMessage = {chatUpdate: 0, text: ''};
   addWidgetModal = false;
+  currentSummuries: any;
   addDashboardModal = false;
+  openChatMessenger = true;
   currentDashboardObj: any;
   dashboardObj = {
     name: '',
@@ -164,13 +199,46 @@ export class DefaultComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.currentSummuries = this.summeries[0];
+  }
+
+  selectSummuries(item) {
+    console.log('iiii', item)
+    this.summeries.forEach(x => x.selected = false);
+    item.selected = true;
+    this.currentSummuries = item;
+  }
+
+  prevNextSummuries(state) {
+    for (let i = 0; i < this.summeries.length; i++) {
+      if (this.summeries[i].id === this.currentSummuries.id) {
+        if (state === 'next') {
+          this.selectSummuries(this.summeries[(i + 1) % this.summeries.length]);
+          break;
+        } else {
+          this.selectSummuries(this.summeries[i ? (i - 1) : (this.summeries.length - 1) % this.summeries.length]);
+          break;
+        }
+      }
+    }
   }
 
   maximizeWidget(item) {
     item.maximize = !item.maximize;
-    setTimeout(() => {
-      $('#highchart').highcharts().reflow();
-    }, 100);
+    // setTimeout(() => {
+    //   $('#highchart').highcharts().reflow();
+    //   $('#map-chart').highcharts().reflow();
+    // }, 100);
+  }
+
+  returnRowData(row) {
+    console.log('*****', row);
+    this.closeChatMessenger(true);
+    this.chatMessage.chatUpdate ++;
+    this.chatMessage.text = JSON.stringify(row) + this.chatMessage.chatUpdate;
+  }
+  closeChatMessenger(state) {
+    this.openChatMessenger =  state;
   }
 
   removeItem(item) {
@@ -199,8 +267,9 @@ export class DefaultComponent implements OnInit {
   }
 
   insertDashboardItem() {
-    this.currentDashboardObj.children.push(this.dashboardObj)
+    this.currentDashboardObj.children.push(this.dashboardObj);
   }
+
 
   // EXPORT_WIDTH = 1000;
   //

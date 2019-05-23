@@ -4,7 +4,8 @@
       <img
         src="assets/resources/logo/logo.svg"
         alt="Rakuten"/>
-      <div style="margin-left: 30px" mat-button (click)="menuOpened=!menuOpened">
+      <div style="margin-left: 30px" [matMenuTriggerFor]="apps" mat-button>
+<!--      <div style="margin-left: 30px" [matMenuTriggerFor]="apps" mat-button (click)="menuOpened=!menuOpened">-->
         <div class="col">
           <div class="con">
             <div class="bar top" [ngClass]="{
@@ -22,6 +23,10 @@
           </div>
         </div>
       </div>
+      <mat-menu class="menu-item" #apps="matMenu">
+        <button mat-menu-item  [routerLink]="'dashboard'">{{lang.ln('mainPage.dashboard')}}</button>
+        <button mat-menu-item  [routerLink]="'shopping/dc'">{{lang.ln('mainPage.shoppingDC')}}</button>
+      </mat-menu>
     </div>
     <div class="toolbar-row-right">
       <button style="margin-right: 12px" mat-icon-button >

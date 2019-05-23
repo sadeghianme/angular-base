@@ -11,10 +11,15 @@ export class WidgetBoxComponent implements OnInit {
   @Input() size = {width: '', height: ''};
   @Output() removeClick = new EventEmitter();
   @Output() maximizeClick = new EventEmitter();
+  @Output() resultRowData = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data)
+    // console.log(this.data)
+  }
+
+  returnRowData(row) {
+    this.resultRowData.emit(row);
   }
 
   removeItem() {

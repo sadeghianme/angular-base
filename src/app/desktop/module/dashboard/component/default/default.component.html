@@ -1,10 +1,12 @@
 <div class="dashboard">
   <div class="dashboard-header">
     <div class="dashboard-header-left">
-      <div class="dashboard-header-left-box" *ngFor="let item of headerWidgets">
-        <app-header-widget [data]="item"></app-header-widget>
+      <div class="dashboard-header-left-box" *ngFor="let item of headerWidgets" (click)="maximizeWidget(item)">
+        <app-header-widget
+          [data]="item">
+        </app-header-widget>
+        <app-widget-box [class.dashboard-widget-box-max]="item.maximize" *ngIf="item.maximize" [data]="item"></app-widget-box>
       </div>
-<!--      <i style="margin-left: 8px" class="material-icons">add</i>-->
     </div>
     <div class="dashboard-header-right">
       <i style="margin-right: 8px" class="material-icons material-icons-btn">local_printshop</i>
@@ -14,18 +16,26 @@
   </div>
   <div class="dashboard-body">
     <div class="dashboard-body-left">
-      <div class="dashboard-body-left-box" *ngFor="let item of summeries">
-        <div class="dashboard-body-left-box-part1">
-          <label>{{item.title}}</label>
-          <label [style.color]="item.kpiStatus">{{item.kpiValue}}</label>
-        </div>
-        <div class="dashboard-body-left-box-part2">
-          <label [style.color]="item.trendStatus">{{item.trend}}
-            <i class="material-icons">arrow_drop_up</i>
-          </label>
-          <label>Target {{item.target}}</label>
-          <label>Achievement {{item.achievement}}</label>
-        </div>
+      <div class="dashboard-body-left-container">
+        <ng-container *ngFor="let item of summeries">
+          <div class="dashboard-body-left-box" [style.boxShadow]="item.selected?'0 0 3px 0px red':null" (click)="selectSummuries(item)">
+            <div class="dashboard-body-left-box-part1">
+              <label>{{item.title}}</label>
+              <label [style.color]="item.kpiStatus">{{item.kpiValue}}</label>
+            </div>
+            <div class="dashboard-body-left-box-part2">
+              <label [style.color]="item.trendStatus">{{item.trend}}
+                <i class="material-icons">arrow_drop_up</i>
+              </label>
+              <label>Target {{item.target}}</label>
+              <label>Achievement {{item.achievement}}</label>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="dashboard-body-left-btn">
+        <app-button btnType="circle-simple" iconName="chevron_left" (clickButton)="prevNextSummuries('prev')"></app-button>
+        <app-button btnType="circle-simple" iconName="chevron_right" (clickButton)="prevNextSummuries('next')"></app-button>
       </div>
 <!--      <div class="dashboard-body-menu-item"-->
 <!--        *ngFor="let menu of menus">-->
@@ -38,66 +48,55 @@
 <!--      </div>-->
 <!--      <app-button btnType="simple" [value]="'New Dashboard'" (clickButton)="addDashboardModal=true"></app-button>-->
     </div>
-    <div class="dashboard-body-grid" cdkDropListGroup>
+    <div class="dashboard-body-grid"
+         [style.width]="openChatMessenger?'calc(100% - 572px)' : 'calc(100% - 266px)'"
+         cdkDropListGroup>
       <div cdkDropList
            [cdkDropListData]="i"
+           class="dashboard-widget-box"
+           [ngStyle]="{'width': item.width, 'height': item.height, 'min-width': item.minWidth}"
            *ngFor="let item of widgets; let i = index">
-        <div *ngIf="item.visible"
-             class="dashboard-widget-box"
-             [class.dashboard-widget-box-max]="item.maximize"
-             cdkDrag
-             [cdkDragData]="i"
-             (cdkDragDropped)="entered($event)"
-             [ngStyle]="{'width': item.width, 'height': item.height}">
+<!--        <div *ngIf="item.visible"-->
+<!--             >-->
+<!--             [ngStyle]="{'width': item.width, 'height': item.height}">-->
           <!--        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>-->
-          <app-widget-box *ngIf="item.data"
+          <app-widget-box
+            [class.dashboard-widget-box-max]="item.maximize"
+            cdkDrag
+            [cdkDragData]="i"
+            (cdkDragDropped)="entered($event)" *ngIf="item.visible && item.data"
             [data]="item"
             [title]="item.title"
+            (resultRowData)="returnRowData($event)"
             (maximizeClick)="maximizeWidget(item)"
             (removeClick)="removeItem(item)">
             <div widget-buttons>
               <i class="material-icons material-icons-widget" *ngIf="!item.maximize" cdkDragHandle>open_with</i>
             </div>
           </app-widget-box>
-        </div>
+<!--        </div>-->
+      </div>
+      <div class="dashboard-body-addWidget">
+        <app-button
+          [btnType]="'icon'"
+          [iconName]="'add'"
+          [iconSize]="'26px'"
+          [bgColor]="'#ddd'"
+          [size]="{width: '40px', height: '40px'}"
+          (clickButton)="addModalWidget()">
+        </app-button>
       </div>
     </div>
-    <div class="dashboard-body-right">
-      <div class="dashboard-chat-btn">
-        <div class="dashboard-chat-icon" (click)="chatState='bot'">
-          <i  [style.color]="chatState==='bot'?'darkred':null"  class="fas fa-robot"></i>
-        </div>
-        <div class="dashboard-chat-icon" (click)="chatState='viber'">
-          <i [style.color]="chatState==='viber'?'rebeccapurple':null" class="fab fa-viber"></i>
-        </div>
-      </div>
-      <div class="chat-box" *ngFor="let item of chats">
-        <div class="chat-box-photo">
-          <i  class="fas fa-{{item.icon}}" [style.color]="item.title==='Bot'?'darkred':null"></i>
-        </div>
-        <div class="chat-box-message">
-          <div class="chat-box-message-header">
-            <label class="title">{{item.title}}</label>
-            <label>{{item.time}}</label>
-          </div>
-          <div class="chat-box-message-text">
-            <label>{{item.message}}</label>
-            <i class="fab fa-viber"></i>
-          </div>
-        </div>
-      </div>
+    <div class="dashboard-body-right" *ngIf="openChatMessenger"
+         [style.transform]="!openChatMessenger ? 'translate(320px)' : null">
+      <app-messenger
+        [chatMessage]="chatMessage.text"
+        [chatUpdate]="chatMessage.chatUpdate"
+        (closeChat)="closeChatMessenger($event)">
+      </app-messenger>
     </div>
   </div>
-  <div class="dashboard-body-addWidget">
-    <app-button
-      [btnType]="'icon'"
-      [iconName]="'add'"
-      [iconSize]="'26px'"
-      [bgColor]="'#ddd'"
-      [size]="{width: '40px', height: '40px'}"
-      (clickButton)="addModalWidget()">
-    </app-button>
-  </div>
+
   <ng-container *ngIf="addWidgetModal">
     <app-modal
       (closeModal)="closeModal('addWidgetModal')"

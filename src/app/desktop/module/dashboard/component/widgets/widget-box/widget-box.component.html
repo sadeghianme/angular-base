@@ -23,7 +23,7 @@
       <app-chart [data]="data"></app-chart>
     </ng-container>
     <ng-container *ngSwitchCase="'table'">
-      <app-table [data]="data"></app-table>
+      <app-table [data]="data" (resultRowData)="returnRowData($event)"></app-table>
     </ng-container>
     <ng-container *ngSwitchCase="'map'">
       <app-map-chart></app-map-chart>

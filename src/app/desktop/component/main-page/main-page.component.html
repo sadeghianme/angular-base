@@ -1,11 +1,13 @@
 
 <div [class]="theme">
   <app-toolbar [title]="'Network Launch Readiness'" (resultTheme)="theme=$event"></app-toolbar>
-  <mat-card style="width: 100%; height: 100vh; border-radius: 0; padding: 0" >
+  <mat-card style="overflow: hidden; width: 100%; height: calc(100vh - 65px); border-radius: 0; padding: 0" >
     <router-outlet></router-outlet>
 
-    <button style="margin-right: 5px; margin-top: 10px" mat-raised-button color="accent" [routerLink]="'shopping/dc'">{{lang.ln('mainPage.shoppingDC')}}</button>
-    <button mat-raised-button color="accent" [routerLink]="'dashboard'">{{lang.ln('mainPage.dashboard')}}</button>
+<!--    <button style="margin-right: 5px; margin-top: 10px" mat-raised-button color="accent" [routerLink]="'shopping/dc'">{{lang.ln('mainPage.shoppingDC')}}</button>-->
+<!--    <button mat-raised-button color="accent" [routerLink]="'dashboard'">{{lang.ln('mainPage.dashboard')}}</button>-->
+
+
 
     <!--    <button mat-raised-button color="accent" (click)="changeTheme('second-theme')">Theme1</button>-->
 <!--    <button mat-button (click)="changeTheme('third-theme')">Theme1</button>-->
