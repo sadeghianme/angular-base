@@ -7,7 +7,7 @@
       <div class="table-body">
         <div class="table-row" *ngFor="let row of data.data.rows">
           <ng-container *ngFor="let col of data.data.columns">
-            <label *ngIf="col.value==='title'">{{row[col.value]}}</label>
+            <label style="justify-content: flex-start" *ngIf="col.value==='title'">{{row[col.value]}}</label>
             <div class="icon" *ngIf="col.value!=='title'">
               <i class="material-icons" [style.color]="row[col.value]">
                   {{row[col.value]==='green'?'done':row[col.value]==='orange'?'error':'warning'}}

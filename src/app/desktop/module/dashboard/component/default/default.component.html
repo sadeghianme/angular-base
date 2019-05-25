@@ -5,7 +5,7 @@
         <app-header-widget
           [data]="item">
         </app-header-widget>
-        <app-widget-box [class.dashboard-widget-box-max]="item.maximize" *ngIf="item.maximize" [data]="item"></app-widget-box>
+<!--        <app-widget-box [class.dashboard-widget-box-max]="item.maximize" *ngIf="item.maximize" [data]="item"></app-widget-box>-->
       </div>
     </div>
     <div class="dashboard-header-right">
@@ -60,8 +60,8 @@
 <!--             >-->
 <!--             [ngStyle]="{'width': item.width, 'height': item.height}">-->
           <!--        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>-->
+<!--            [class.dashboard-widget-box-max]="item.maximize"-->
           <app-widget-box
-            [class.dashboard-widget-box-max]="item.maximize"
             cdkDrag
             [cdkDragData]="i"
             (cdkDragDropped)="entered($event)" *ngIf="item.visible && item.data"
@@ -143,6 +143,45 @@
           Name <input [(ngModel)]="dashboardObj.name">
           <app-button btnType="simple" value="Add " (clickButton)="insertDashboardItem()"></app-button>
         </div>
+      </div>
+    </app-modal>
+  </ng-container>
+
+  <ng-container *ngIf="addWidgetModal">
+    <app-modal
+      (closeModal)="closeModal('addWidgetModal')"
+      [showFooter]="false"
+      [modalSize]="'middle'"
+      [title]="'Add Widget'">
+      <div modal-container class="modal-body">
+        <div class="dashboard-widgetList">
+          <div class="dashboard-widgetList-item" *ngFor="let item of widgets">
+            {{item.title}}
+            <app-button
+              [btnType]="'simple-icon'"
+              [iconName]="item.visible ? 'remove' : 'add'"
+              [iconSize]="'18px'"
+              [size]="{width: '25px', height: '25px'}"
+              (clickButton)="insertWidget(item)">
+            </app-button>
+          </div>
+        </div>
+
+      </div>
+    </app-modal>
+  </ng-container>
+  <ng-container *ngIf="maxWidget.active">
+    <app-modal
+      [showFooter]="false"
+      [type]="'empty'"
+      [modalSize]="'large'">
+      <div modal-container class="modal-body" >
+        <app-widget-box
+          [actions]="{max: false, close: true, report: true}"
+          [title]="maxWidget.currentWidget.title"
+          (resultRowData)="returnRowData($event)"
+          (removeClick)="maxWidget.active = false"
+          [data]="maxWidget.currentWidget"></app-widget-box>
       </div>
     </app-modal>
   </ng-container>

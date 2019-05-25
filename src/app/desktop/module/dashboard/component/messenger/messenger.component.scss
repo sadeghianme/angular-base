@@ -4,7 +4,7 @@
   height: 100%;
 }
 .chat-message {
-  height: calc(100% - 170px);
+  height: calc(100% - 140px);
   width: 100%;
   overflow: auto;
   @include flex-content(flex-start);

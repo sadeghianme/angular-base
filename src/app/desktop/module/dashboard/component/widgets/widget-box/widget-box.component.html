@@ -3,9 +3,9 @@
     <div class="widget-header-left">{{title}}</div>
     <div class="widget-header-right">
       <ng-content select="[widget-buttons]"></ng-content>
-      <i class="material-icons" *ngIf="data.type!='sticky'" (click)="maximizeBox()">{{true?'open_in_new':'fullscreen_exit'}}</i>
-      <i class="material-icons" *ngIf="data.type!='sticky'">insert_drive_file</i>
-      <i class="material-icons" (click)="removeItem()">clear</i>
+      <i class="material-icons" *ngIf="actions.max && data.type!='sticky'" (click)="maximizeBox()">open_in_new</i>
+      <i class="material-icons" *ngIf="actions.report && data.type!='sticky'">insert_drive_file</i>
+      <i class="material-icons" *ngIf="actions.close" (click)="removeItem()">clear</i>
 <!--      <app-button -->
 <!--        [btnType]="'simple-icon'" -->
 <!--        [iconName]="'clear'" -->

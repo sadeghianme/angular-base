@@ -20,7 +20,7 @@ export class DefaultComponent implements OnInit {
     {id: '1', title: 'RAN', data: [1, 8, 3, 5, 6, 7], type: 'chart', config: {type: 'bar'}},
     {id: '2', title: 'GC', data: [7, 18, 12, 31, 13, 10], type: 'chart',
       config: {type: 'bar', title: '', subtitle: '', showTooltip: true,
-        xAxis: {title: 'ppp', showLabel: true, categories: ['q', 'c'] }, yAxis: {title: '', showLabel: true, categories: null  },
+        xAxis: {title: 'ppp', showLabel: true, categories: ['q', 'c'] }, yAxis: {title: '', showLabel: false, categories: null  },
         legend: {layout: '', enabled: false, floating: true }}},
 
     {id: '3', title: 'BH', data: [7, 5, 3, 3, 5, 2], type: 'chart', config: {type: 'bar'}},
@@ -30,22 +30,24 @@ export class DefaultComponent implements OnInit {
     // {id: '5', title: 'IME CORE', data: [7, 8, 3], config: {type: 'bar'}},
   ];
   widgets = [
+    // {id: '1', title: 'Voice', width: '320px', minWidth: '32%', height: '390px', type: 'chart', visible: true, data: [7, 18, 12],
+    //   config: {type: 'column', title: 'ty', subtitle: '', showTooltip: true,
+    //     xAxis: {title: 'ppp', showLabel: true, categories: ['q', 'c', 'r'] }, yAxis: {title: 'ttt', showLabel: true, categories: null  },
+    //     legend: {layout: '', enabled: true, floating: true }}},
     {id: '1', title: 'Voice', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
     {id: '2', title: 'Data', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
     {id: '3', title: 'SMS', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
 
-    {id: '4', title: 'Metrics', width: '320px', minWidth: '32%', height: '320px', type: 'table', visible: true,
-      data: {columns: [{text: '', value: 'title'}, {text: 'CPU', value: 'cpu'}, {text: 'RAM', value: 'ram'}, {text: 'Ava.', value: 'ava'}, {text: 'Op. T.', value: 'opt'}],
+    {id: '4', title: 'Metrics', width: '320px', minWidth: '40%', height: '320px', type: 'table', visible: true,
+      data: {columns: [{text: '', value: 'title'}, {text: 'CPU', value: 'cpu'}, {text: 'RAM', value: 'ram'}, {text: 'Ava.', value: 'ava'}, {text: 'Op. T.', value: 'opt'}, {text: 'Int. U.', value: 'intU'}, {text: 'Sto.', value: 'sto'}],
         rows: [
-          {title: 'green', cpu: 'green', ram: 'red', ava: 'green', opt: 'orange'},
-          {title: 'green', cpu: 'orange', ram: 'green', ava: 'red', opt: 'green'},
-          {title: 'red', cpu: 'green', ram: 'green', ava: 'orange', opt: 'green'},
-          {title: 'green', cpu: 'orange', ram: 'green', ava: 'red', opt: 'red'},
-          {title: 'orange', cpu: 'red', ram: 'green', ava: 'red', opt: 'green'},
-          {title: 'green', cpu: 'green', ram: 'red', ava: 'green', opt: 'orange'},
-          {title: 'red', cpu: 'green', ram: 'green', ava: 'orange', opt: 'green'},
+          {title: 'RAN', cpu: 'green', ram: 'red', ava: 'green', opt: 'orange', intU: 'green', sto: 'red'},
+          {title: 'GC', cpu: 'orange', ram: 'green', ava: 'red', opt: 'green', intU: 'green', sto: 'red'},
+          {title: 'BH', cpu: 'green', ram: 'green', ava: 'orange', opt: 'green', intU: 'green', sto: 'red'},
+          {title: 'CDC', cpu: 'orange', ram: 'green', ava: 'red', opt: 'red', intU: 'green', sto: 'red'},
+          {title: 'INET Core', cpu: 'red', ram: 'green', ava: 'red', opt: 'green', intU: 'green', sto: 'red'},
         ]}, config: {type: 'icon'}},
-    {id: '5', title: 'Services', width: '320px', minWidth: '32%', height: '320px', type: 'table', visible: true,
+    {id: '5', title: 'Services', width: '280px', minWidth: '28%', height: '320px', type: 'table', visible: true,
       data: {columns: [{text: '', value: 'title'},
           {text: 'Critical', value: 'critical', color: 'red'},
           {text: 'Major', value: 'major', color: 'orange'},
@@ -59,7 +61,7 @@ export class DefaultComponent implements OnInit {
           {title: 'CDC', critical: '162', major: '34', minor: '35'},
           {title: 'Bo', critical: '12', major: '34', minor: '345'},
           ]}, config: {type: 'text'}},
-    {id: '6', title: 'Alarms', width: '320px', minWidth: '32%', height: '320px', type: 'table', visible: true,
+    {id: '6', title: 'Alarms', width: '280px', minWidth: '24%', height: '320px', type: 'table', visible: true,
       data: {columns: [{text: '', value: 'title'},
           {text: 'RAN', value: 'ran'},
           {text: 'EPC', value: 'epc'},
@@ -181,6 +183,7 @@ export class DefaultComponent implements OnInit {
     }
   ];
   chatMessage = {chatUpdate: 0, text: ''};
+  maxWidget = {currentWidget: {}, active: false};
   addWidgetModal = false;
   currentSummuries: any;
   addDashboardModal = false;
@@ -203,7 +206,7 @@ export class DefaultComponent implements OnInit {
   }
 
   selectSummuries(item) {
-    console.log('iiii', item)
+    console.log('iiii', item);
     this.summeries.forEach(x => x.selected = false);
     item.selected = true;
     this.currentSummuries = item;
@@ -225,6 +228,8 @@ export class DefaultComponent implements OnInit {
 
   maximizeWidget(item) {
     item.maximize = !item.maximize;
+    this.maxWidget.active = true;
+    this.maxWidget.currentWidget = item;
     // setTimeout(() => {
     //   $('#highchart').highcharts().reflow();
     //   $('#map-chart').highcharts().reflow();
@@ -263,6 +268,7 @@ export class DefaultComponent implements OnInit {
   }
 
   closeModal(modal) {
+    console.log(modal)
     this[modal] = false;
   }
 
