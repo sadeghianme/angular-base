@@ -90,8 +90,6 @@
     <div class="dashboard-body-right" *ngIf="openChatMessenger"
          [style.transform]="!openChatMessenger ? 'translate(320px)' : null">
       <app-messenger
-        [chatMessage]="chatMessage.text"
-        [chatUpdate]="chatMessage.chatUpdate"
         (closeChat)="closeChatMessenger($event)">
       </app-messenger>
     </div>
