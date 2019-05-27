@@ -1,0 +1,101 @@
+@import "~src/style/mixin";
+.table {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  padding: 5px;
+}
+.table-column {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  width: 100%;
+  height: 40px;
+  transition: top .4s;
+  @include flex-content(space-between);
+  label {
+    width: 25%;
+  }
+  .table-icon {
+    @include flex-content();
+  }
+}
+.table-body {
+  height: calc(100% - 40px);
+  width: 100%;
+}
+.table-row {
+  height: 40px;
+  width: 100%;
+  @include flex-content(space-between);
+  border-bottom: 1px solid #dddddd;
+  .icon, label{
+    width: 25%;
+    @include flex-content();
+  }
+  &:hover {
+    background-color: #f4f4f4;
+  }
+}
+.text label{
+  justify-content: flex-start;
+}
+.table-row-nested {
+  width: 100%;
+  height: auto;
+  @include flex-content();
+  flex-direction: column;
+  border-bottom: 1px solid #dddddd;
+}
+.main-title {
+  width: 100%;
+  height: 35px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.sub-title {
+  width: 96%;
+  height: 35px;
+  @include flex-content(flex-end);
+  border-top: 1px solid #dddddd;
+  .icon, label {
+    width: 25%;
+    @include flex-content();
+  }
+  label {
+    justify-content: flex-start;
+  }
+  &:hover {
+    background-color: #f4f4f4;
+  }
+}
+.botIcon {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 9;
+  top: 30px;
+  background: gray;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 16pt;
+}
+.icon, .label {
+  height: 100%;
+  i {
+    cursor: pointer;
+  }
+  position: relative;
+  &:hover .botIcon {
+    display: flex;
+    animation: showIcon .5s forwards;
+    animation-delay: 1s;
+  }
+}
+@keyframes showIcon {
+  from {opacity: 0}
+  to {opacity: 1}
+}

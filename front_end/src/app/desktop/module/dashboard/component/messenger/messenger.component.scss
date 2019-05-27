@@ -1,0 +1,108 @@
+@import "~src/style/mixin.scss";
+.chat {
+ width: 100%;
+  height: 100%;
+}
+.chat-message {
+  height: calc(100% - 170px);
+  width: 100%;
+  overflow: auto;
+  @include flex-content(flex-start);
+  flex-direction: column;
+  margin-bottom: 5px;
+  .chat-box {
+    width: calc(100% - 10px);
+    @include flex-content(space-beetween, flex-start);
+    margin: 15px 5px;
+    .chat-box-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      @include flex-content();
+      i {
+        font-size: 30px;
+      }
+    }
+    .chat-box-message {
+      width: calc(100% - 50px);
+      .chat-box-message-header {
+        @include flex-content(space-between);
+        margin: 5px 0;
+        .title {
+          font-weight: bold;
+        }
+      }
+      .chat-box-message-text {
+        text-align: justify;
+        label {
+          overflow-wrap: break-word;
+        }
+      }
+    }
+  }
+
+}
+.chat-message-send {
+  width: 100%;
+  height: 50px;
+  @include flex-content();
+  position: sticky;
+  bottom: 5px;
+  .input {
+    @include flex-content(space-between);
+    height: 100%;
+    width: 95%;
+    background-color: #dddddd;
+    border-radius: 3px;
+    .chat-input-btn {
+      padding: 3px;
+      cursor: pointer;
+      border-radius: 50%;
+      &:hover {
+        background-color: white;
+      }
+    }
+    .attachment {
+      transform: rotate(-45deg);
+    }
+    i {
+      margin: 0 5px;
+    }
+    input {
+      width: 75%;
+      height: 30px;
+      border: none;
+      background: transparent;
+      outline: none;
+    }
+  }
+}
+.chat-btn {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  height: 80px;
+  @include flex-content();
+  app-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .chat-icon {
+    width: 50%;
+    @include flex-content();
+    font-size: 26pt;
+    transition: font-size .4s;
+    &:hover .fa-robot {
+      color: #8b1616;
+      font-size: 1.05em;
+    }
+    &:hover .fa-viber {
+      color: purple;
+      font-size: 1.05em;
+    }
+    i {
+      color: gray;
+    }
+  }
+}
