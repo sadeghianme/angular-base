@@ -32,6 +32,7 @@ $bv-brand: (
     A700: white,
   )
 );
+
 $default-primary: mat-palette($bv-brand, 50);
 $default-dashboard: mat-palette($bv-brand, 200);
 $default-accent: mat-palette($mat-indigo, 200);
