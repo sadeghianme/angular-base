@@ -1,0 +1,201 @@
+@import "~src/style/mixin.scss";
+.dashboard {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
+}
+.dashboard-header {
+  border-bottom: 1px solid #dcdcdc;
+  border-top: 1px solid #dcdcdc;
+  background-color: #fafafa;
+  //padding: 10px 15px;
+  @include flex-content(space-between);
+  width: 100%;
+  height: 120px;
+}
+.dashboard-header-right, .dashboard-header-left {
+  width: fit-content;
+  margin: 5px 10px;
+  height: calc(100% - 10px);
+  @include flex-content(flex-start);
+}
+.dashboard-header-right {
+  //padding-right: 15px;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.dashboard-header-left {
+  //padding-left: 15px;
+  max-width: 80%;
+  overflow: hidden;
+  overflow-x: auto;
+  .dashboard-header-left-box {
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    width: 200px;
+    height: calc(100% - 8px);
+    font-size: 9pt;
+    @include flex-content(flex-start);
+    padding: 3px;
+    margin-right: 5px;
+  }
+}
+.dashboard-body {
+  @include flex-content(flex-start, flex-start);
+  position: relative;
+  width: 100%;
+  height: calc(100% - 120px);
+}
+.dashboard-body-left {
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 3px 3px 0 gray;
+  @include flex-content(flex-start, center);
+  flex-direction: column;
+}
+.dashboard-body-left-container {
+  overflow: auto;
+  padding: 10px 5px;
+  height: calc(100% - 70px);
+}
+.dashboard-body-left-btn {
+  height: 50px;
+  width: 100%;
+  @include flex-content(space-between);
+  background-color: white;
+}
+.dashboard-body-left-box {
+  cursor: pointer;
+  width: 220px;
+  height: 80px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 5px;
+  @include flex-content(space-between, space-between);
+  &:hover {
+    border: 1px solid #a9a9a9;
+  }
+}
+.dashboard-body-left-box-part1, .dashboard-body-left-box-part2 {
+  height: 100%;
+  @include flex-content(space-between, space-between);
+  flex-direction: column;
+}
+.dashboard-body-left-box-part1 {
+  label {
+    font-size: 12pt;
+    font-weight: bold;
+  }
+}
+.dashboard-body-left-box-part2 {
+  align-items: flex-end;
+  label {
+    @include flex-content();
+  }
+}
+//.dashboard-body-left-item {
+//  width: calc(100% - 10px);
+//  height: auto;
+//  @include flex-content(center, flex-start);
+//  flex-direction: column;
+//  padding: 5px 0;
+//  font-size: 10pt;
+//  font-weight: bold;
+//  border-bottom: 1px solid #dddddd;
+//  label {
+//    margin: 0 10px;
+//  }
+//}
+//.dashboard-body-menu-subItem {
+//  width: calc(100% - 10px);
+//  height: 40px;
+//  @include flex-content(flex-start);
+//  padding: 0 10px;
+//  font-size: 10pt;
+//  font-weight: normal;
+//  border-radius: 2px;
+//  transition: background-color .3s;
+//  &:hover {
+//    background-color: #dddddd;
+//  }
+//}
+.dashboard-body-grid {
+  width: calc(100% - 572px);
+  display:flex;
+  flex-wrap:wrap;
+  height: calc(100% - 20px);
+  overflow: auto;
+  padding: 10px;
+  position: relative;
+  transition: width .1s;
+}
+.dashboard-body-right {
+  width: 306px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 3px 3px 0 gray;
+  transition: transform .1s;
+}
+.dashboard-body-addWidget {
+  width: 40px;
+  height: 40px;
+  position: sticky;
+  right: 10px;
+  bottom: 30px;
+  z-index: 9;
+  box-shadow: 0 0 3px 0 grey;
+  border-radius: 50%;
+}
+.dashboard-widgetList {
+  width: 100%;
+  @include flex-content(flex-start);
+  flex-direction: column;
+}
+.dashboard-widgetList-item {
+  width: calc(100% - 5px);
+  height: 40px;
+  border: 1px solid #dddddd;
+  margin: 1px 2px;
+  @include flex-content(space-between);
+}
+.dashboard-widget-box {
+  margin: 5px;
+  transition: all .3s;
+}
+//.dashboard-widget-box-max {
+//  width: 80% !important;
+//  height: 80% !important;
+//  position: fixed;
+//  z-index: 9;
+//  top: 0;
+//  bottom: 0;
+//  right: 0;
+//  left: 0;
+//  margin: auto;
+//}
+.dashboard-widget-body {
+  overflow: auto;
+}
+.dashboard-modal {
+  width: 100%;
+  height: 100%;
+  @include flex-content(flex-start, flex-start);
+}
+.material-icons-btn, .material-icons-widget {
+  font-size: 26px;
+  border-radius: 50%;
+  margin: 0 2px;
+  transition: background-color .4s;
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #dddddd;
+  }
+}
+.material-icons-widget {
+  font-size: 16px;
+  padding: 2px;
+}
+

@@ -1,0 +1,86 @@
+@import '../../../../../style/variable';
+@import '../../../../../style/mixin';
+
+@mixin modal-style($min-width, $width, $min-height, $height) {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #f8f8f8;
+  box-shadow: $shadow;
+  z-index: 999;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  //border-radius: 4px;
+  width: $width;
+  height: $height;
+  min-width: $min-width;
+  min-height: $min-height;
+}
+.public-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(100, 100, 100, .7);
+  z-index: 99;
+}
+.public-modal-full {
+  @include modal-style(600px, 100%, 500px, 100%);
+}
+.public-modal-large {
+  @include modal-style(600px, 75%, 400px, 80%);
+}
+.public-modal-middle {
+  @include modal-style(400px, 55%, 300px, 50%);
+}
+.public-modal-small {
+  @include modal-style(300px, 35%, 250px, 30%);
+}
+.public-modal-header{
+  @include flex-content(space-between);
+  width: 100%;
+  cursor: move;
+  height: 50px;
+  border-bottom: 1px solid #dddddd;
+  color: white;
+  background: $color-pan1;
+}
+.header {
+  font-size: 15px;
+  margin: 0 10px;
+}
+.public-close{
+  margin-left: 5px;
+  display: flex;
+}
+.public-modal-main{
+  display: flex;
+  background-color: white;
+  height: calc(100% - 115px);
+  overflow: auto;
+}
+.empty {
+  height: 100% !important;
+  padding: 0px;
+  margin: 0;
+}
+.public-modal-btn{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 65px;
+  background: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid #dddddd;
+}
+.public-modal-message {
+  flex-wrap: wrap;
+  padding: 7px;
+  border-bottom: 1px solid #dddddd;
+  display: none;
+}

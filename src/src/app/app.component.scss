@@ -1,0 +1,114 @@
+@import '../style/variable.scss';
+.initiate {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.initiate-container {
+  background-color: $site-background;
+  //background-image: url("/assets/resources/background/fond.png");
+  //background-position: center;
+  //background-repeat: no-repeat;
+  //background-size: cover;
+}
+.pan-overlay, .initiate-loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(27, 32, 51, 0.48);
+  z-index: 99999;
+  display: none;
+}
+.initiate-loading {
+  background-color: $color-pan1;
+  display: flex;
+}
+.pan-overlay-container, .initiate-loading-container  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  flex-direction: column;
+  label {
+    text-align: center;
+  }
+}
+.initiate-loading-container {
+  label {
+    margin-top: 20px;
+    color: $color-pan2;
+  }
+  animation: cssAnimation 0s 1.5s forwards;
+  opacity: 0;
+  .wave {
+    animation: cssAnimation 0s 1s forwards;
+    opacity: 0;
+  }
+}
+@keyframes cssAnimation {
+  to   { opacity: 1; }
+}
+@keyframes lds-ripple {
+  0% {
+    top: 96px;
+    left: 96px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -2px;
+    left: -2px;
+    width: 196px;
+    height: 196px;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes lds-ripple {
+  0% {
+    top: 96px;
+    left: 96px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -2px;
+    left: -2px;
+    width: 196px;
+    height: 196px;
+    opacity: 0;
+  }
+}
+.lds-ripple {
+  position: relative;
+}
+.lds-ripple div {
+  box-sizing: content-box;
+  position: absolute;
+  border-width: 4px;
+  border-style: solid;
+  opacity: 1;
+  border-radius: 50%;
+  -webkit-animation: lds-ripple 3.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  animation: lds-ripple 3.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(1) {
+  border-color: #2c396b;
+}
+.lds-ripple div:nth-child(2) {
+  border-color: #fbc110;
+  -webkit-animation-delay: -1.6s;
+  animation-delay: -1.6s;
+}
+.lds-ripple {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}

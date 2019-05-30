@@ -1,0 +1,37 @@
+<div class="widget" [ngStyle]="{'width': size.width, 'height': size.height}">
+  <div class="widget-header">
+    <div class="widget-header-left">{{title}}</div>
+    <div class="widget-header-right">
+      <ng-content select="[widget-buttons]"></ng-content>
+      <i class="material-icons" *ngIf="actions.max && data.type!='sticky'" (click)="maximizeBox()">open_in_new</i>
+      <i class="material-icons" *ngIf="actions.report && data.type!='sticky'">insert_drive_file</i>
+      <i class="material-icons" *ngIf="actions.close" (click)="removeItem()">clear</i>
+<!--      <app-button -->
+<!--        [btnType]="'simple-icon'" -->
+<!--        [iconName]="'clear'" -->
+<!--        [iconSize]="'16px'" -->
+<!--        [size]="{width: '20px', height: '20px'}"-->
+<!--        (clickButton)="">-->
+<!--      </app-button>-->
+    </div>
+  </div>
+  <div class="widget-body" [ngSwitch]="data.type">
+    <ng-container *ngSwitchCase="'sticky'">
+      <app-sticky [data]="data"></app-sticky>
+    </ng-container>
+    <ng-container *ngSwitchCase="'chart'">
+      <app-chart [data]="data"></app-chart>
+    </ng-container>
+    <ng-container *ngSwitchCase="'table'">
+      <app-table [data]="data" (resultRowData)="returnRowData($event)"></app-table>
+    </ng-container>
+    <ng-container *ngSwitchCase="'map'">
+      <app-map-chart></app-map-chart>
+    </ng-container>
+    <ng-container *ngSwitchCase="'custom'">
+      <ng-content select="[custom-widget-body]"></ng-content>
+    </ng-container>
+<!--    <ng-container *ngSwitchDefault >this is Default Widget</ng-container>-->
+
+  </div>
+</div>

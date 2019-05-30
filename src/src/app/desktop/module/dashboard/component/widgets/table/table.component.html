@@ -1,0 +1,64 @@
+<div [ngSwitch]="data.config.type">
+  <ng-container *ngSwitchCase="'icon'">
+    <div class="table">
+      <div class="table-column" >
+        <label class="table-icon" *ngFor="let col of data.data.columns" [style.color]="col?.color">{{col.text}}</label>
+      </div>
+      <div class="table-body">
+        <div class="table-row" *ngFor="let row of data.data.rows">
+          <ng-container *ngFor="let col of data.data.columns">
+            <label style="justify-content: flex-start" *ngIf="col.value==='title'">{{row[col.value]}}</label>
+            <div class="icon" *ngIf="col.value!=='title'">
+              <i class="material-icons" [style.color]="row[col.value]">
+                  {{row[col.value]==='green'?'done':row[col.value]==='orange'?'error':'warning'}}
+              </i>
+              <i class="fas fa-robot botIcon" (click)="returnRowData(row)"></i>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'text'">
+    <div class="table">
+      <div class="table-column" >
+        <label *ngFor="let col of data.data.columns" [style.color]="col?.color">{{col.text}}</label>
+      </div>
+      <div class="table-body">
+        <div class="table-row text" *ngFor="let row of data.data.rows">
+          <ng-container *ngFor="let col of data.data.columns">
+            <label class="label">
+              <i *ngIf="col.value==='title'" class="material-icons">arrow_right</i>
+              {{row[col.value]}}
+              <i class="fas fa-robot botIcon" (click)="returnRowData(row)"></i>
+            </label>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'nested'">
+    <div class="table">
+      <div class="table-column" >
+        <label class="table-icon" *ngFor="let col of data.data.columns" [style.color]="col?.color">{{col.text}}</label>
+      </div>
+      <div class="table-body">
+        <div class="table-row-nested" *ngFor="let row of data.data.rows">
+          <div class="main-title"> {{row.title}}</div>
+          <div class="sub-title"  *ngFor="let subrow of row.lists">
+            <ng-container *ngFor="let col of data.data.columns">
+              <label *ngIf="col.value==='title'">{{subrow[col.value]}}</label>
+              <div *ngIf="col.value!=='title'" class="icon">
+                <i class="material-icons" [style.color]="subrow[col.value]">
+                  {{subrow[col.value]==='green'?'done':subrow[col.value]==='orange'?'error':'warning'}}
+                </i>
+                <i class="fas fa-robot botIcon" (click)="returnRowData(row)"></i>
+              </div>
+            </ng-container>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
