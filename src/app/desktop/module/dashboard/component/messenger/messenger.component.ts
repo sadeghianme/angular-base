@@ -36,6 +36,9 @@ export class MessengerComponent implements OnInit, OnChanges {
     this.closeChat.emit(false);
   }
 
+
+
+  
   sentMessage(msg) {
     const time = new Date();
     const currentTime = `${time.getHours()}/${time.getMinutes()}`;
