@@ -9,6 +9,7 @@ export class WidgetBoxComponent implements OnInit {
   @Input() title = '';
   @Input() data: any;
   @Input() size = {width: '', height: ''};
+  @Input() actions = {close: true, max: true, report: true};
   @Output() removeClick = new EventEmitter();
   @Output() maximizeClick = new EventEmitter();
   @Output() resultRowData = new EventEmitter();

@@ -42,14 +42,14 @@ export class ChartComponent implements OnInit {
       // colors: ['#2f7ed8', '#910000', '#8bbc21', '#1aadce'],
       chart: {
         reflow: true,
-        margin: .5, //removes all margin
+        // margin: .5, //removes all margin
         backgroundColor: '#ffffff',
         type: this.data.config.type || 'line',
-        height: (9 / 16 * 100) + '%',
-        animation: {
-          duration: 1000,
-          easing: 'easeOutBounce'
-        }
+        height: (10 / 16 * 100) + '%',
+        // animation: {
+        //   duration: 1000,
+        //   easing: 'easeOutBounce'
+        // }
       },
       title: {
         text: this.data.config.title || ''
@@ -62,9 +62,9 @@ export class ChartComponent implements OnInit {
       },
       xAxis: {
         // crosshair: true, //hover effect of column
-        gridLineWidth: 0,
-        lineWidth: 1,
-        // min: 0,
+        // gridLineWidth: 0,
+        // lineWidth: 1,
+        min: 0,
         title: {
           text: this.data.config.xAxis && this.data.config.xAxis.title,
           // align: 'high'
@@ -76,9 +76,9 @@ export class ChartComponent implements OnInit {
         }
       },
       yAxis: {
-        gridLineWidth: 0,
-        lineWidth: 1,
-        // min: 0,
+        // gridLineWidth: 0,
+        // lineWidth: 1,
+        min: 0,
         title: {
           text: this.data.config.yAxis && this.data.config.yAxis.title,
           // align: 'high'

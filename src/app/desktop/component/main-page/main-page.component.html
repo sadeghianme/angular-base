@@ -1,7 +1,7 @@
 
-<div [class]="theme">
+<div class="main" [class]="theme">
   <app-toolbar [title]="'Network Launch Readiness'" (resultTheme)="theme=$event"></app-toolbar>
-  <mat-card style="overflow: hidden; width: 100%; height: calc(100vh - 65px); border-radius: 0; padding: 0" >
+  <mat-card class="main-body">
     <router-outlet></router-outlet>
 
 <!--    <button style="margin-right: 5px; margin-top: 10px" mat-raised-button color="accent" [routerLink]="'shopping/dc'">{{lang.ln('mainPage.shoppingDC')}}</button>-->

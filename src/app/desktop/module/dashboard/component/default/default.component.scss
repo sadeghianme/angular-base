@@ -8,19 +8,24 @@
   border-bottom: 1px solid #dcdcdc;
   border-top: 1px solid #dcdcdc;
   background-color: #fafafa;
-  padding: 10px 15px;
+  //padding: 10px 15px;
   @include flex-content(space-between);
+  width: 100%;
+  height: 120px;
 }
 .dashboard-header-right, .dashboard-header-left {
   width: fit-content;
-  height: 100%;
+  margin: 5px 10px;
+  height: calc(100% - 10px);
   @include flex-content(flex-start);
 }
 .dashboard-header-right {
+  //padding-right: 15px;
   justify-content: flex-end;
   align-items: flex-start;
 }
 .dashboard-header-left {
+  //padding-left: 15px;
   max-width: 80%;
   overflow: hidden;
   overflow-x: auto;
@@ -28,10 +33,10 @@
     border: 1px solid #dddddd;
     border-radius: 3px;
     width: 200px;
-    height: 80px;
+    height: calc(100% - 8px);
     font-size: 9pt;
     @include flex-content(flex-start);
-    padding: 2px;
+    padding: 3px;
     margin-right: 5px;
   }
 }
@@ -39,25 +44,23 @@
   @include flex-content(flex-start, flex-start);
   position: relative;
   width: 100%;
-  height: calc(100% - 80px);
+  height: calc(100% - 120px);
 }
 .dashboard-body-left {
-  width: 234px;
+  width: 250px;
   height: 100%;
-  position: sticky;
-  top: 0;
   background-color: white;
   box-shadow: 0 3px 3px 0 gray;
-  padding: 15px;
   @include flex-content(flex-start, center);
   flex-direction: column;
 }
 .dashboard-body-left-container {
-  width: 100%;
-  height: calc(100% - 75px);
+  overflow: auto;
+  padding: 10px 5px;
+  height: calc(100% - 70px);
 }
 .dashboard-body-left-btn {
-  height: 5px;
+  height: 50px;
   width: 100%;
   @include flex-content(space-between);
   background-color: white;
@@ -161,17 +164,17 @@
   margin: 5px;
   transition: all .3s;
 }
-.dashboard-widget-box-max {
-  width: 80% !important;
-  height: 80% !important;
-  position: fixed;
-  z-index: 9;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-}
+//.dashboard-widget-box-max {
+//  width: 80% !important;
+//  height: 80% !important;
+//  position: fixed;
+//  z-index: 9;
+//  top: 0;
+//  bottom: 0;
+//  right: 0;
+//  left: 0;
+//  margin: auto;
+//}
 .dashboard-widget-body {
   overflow: auto;
 }
@@ -191,8 +194,8 @@
     background-color: #dddddd;
   }
 }
-
 .material-icons-widget {
   font-size: 16px;
   padding: 2px;
 }
+
