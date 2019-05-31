@@ -90,7 +90,8 @@ export class DefaultComponent implements OnInit {
    // {id: '1.2', title: 'RAP', width: '320px', height: '280px', type: 'chart', visible: true, data: [3, 12, 7],
    //   config: {type: 'column', yAxis: {title: 'row', showLabel: true}, xAxis: {title: 'row', showLabel: true}}},
 
-   {id: '6', title: 'RAN', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
+   {id: '6', title: 'RAN', width: '150px', height: '150px', type: 'sticky', visible: true,
+     data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
    {id: '7', title: 'Backhaul', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
    {id: '8', title: 'GC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
  {id: '6', title: 'CDC-vIMS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
