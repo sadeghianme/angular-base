@@ -61,9 +61,11 @@ export class ChartComponent implements OnInit {
         enabled: this.data.config.tooltip || true
       },
       xAxis: {
+        type: this.data.config.xAxis && this.data.config.xAxis.type,
         // crosshair: true, //hover effect of column
-        // gridLineWidth: 0,
-        // lineWidth: 1,
+        gridLineWidth: 0,
+        lineWidth: 1,
+        tickInterval: 1,
         min: 0,
         title: {
           text: this.data.config.xAxis && this.data.config.xAxis.title,
@@ -71,13 +73,15 @@ export class ChartComponent implements OnInit {
         },
         categories: this.data.config.xAxis && this.data.config.xAxis.categories,
         labels: {
+          rotation: 0,
           enabled: this.data.config.xAxis && this.data.config.xAxis.showLabel || true,
           overflow: 'justify'
         }
       },
       yAxis: {
-        // gridLineWidth: 0,
-        // lineWidth: 1,
+        gridLineWidth: 0,
+        lineWidth: 1,
+        tickInterval: 1,
         min: 0,
         title: {
           text: this.data.config.yAxis && this.data.config.yAxis.title,
@@ -85,6 +89,7 @@ export class ChartComponent implements OnInit {
         },
         categories: this.data.config.yAxis && this.data.config.yAxis.categories,
         labels: {
+          rotation: 0,
           enabled: this.data.config.yAxis && this.data.config.yAxis.showLabel || true,
           overflow: 'justify'
         }

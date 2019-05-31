@@ -9,11 +9,9 @@ import {Router} from "@angular/router";
 export class MenuBarComponent implements OnInit {
 
   constructor(
-    private router: Router
   ) { }
 
   ngOnInit() {
-    this.router.navigate(['/dashboard/default']);
   }
 
 }

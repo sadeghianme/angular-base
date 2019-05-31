@@ -4,12 +4,14 @@
 @import "variable";
 @import "mixin";
 @import "common";
-
+@import "fontIcon";
 body {
   margin: 0;
+  font-family: $font-name;
   font-size: $font-size;
 }
 
 div, label, span, strong {
+  font-family: $font-name;
   font-size: $font-size;
 }

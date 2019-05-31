@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, CdkDragEnter, moveItemInArray} from '@angular/cdk/drag-drop';
 import {LanguageService} from '../../../../../public/core/services/language/language.service';
+import {ApiService} from "../../../../../public/core/services/api/api.service";
 
 declare const $: any;
 @Component({
@@ -18,9 +19,10 @@ export class DefaultComponent implements OnInit {
   ];
   headerWidgets = [
     {id: '1', title: 'RAN', data: [1, 8, 3, 5, 6, 7], type: 'chart', config: {type: 'bar'}},
-    {id: '2', title: 'GC', data: [7, 18, 12, 31, 13, 10], type: 'chart',
+    {id: '2', title: 'GC', data: [['ram', 7], ['cpu', 18], ['sto', 12]], type: 'chart',
       config: {type: 'bar', title: '', subtitle: '', showTooltip: true,
-        xAxis: {title: 'ppp', showLabel: true, categories: ['q', 'c'] }, yAxis: {title: '', showLabel: false, categories: null  },
+        xAxis: {title: '', showLabel: true, categories: null, type: 'category' },
+        yAxis: {title: '', showLabel: true, categories: null  },
         legend: {layout: '', enabled: false, floating: true }}},
 
     {id: '3', title: 'BH', data: [7, 5, 3, 3, 5, 2], type: 'chart', config: {type: 'bar'}},
@@ -100,89 +102,6 @@ export class DefaultComponent implements OnInit {
    {id: '8', title: 'INET Core', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
    {id: '8', title: 'IoT', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
   ];
-  menus = [
-    {
-      id: '1',
-      name: 'dashboard.menu.kpi',
-      icon: 'dashboard',
-      link: 'dashboard',
-      accessCondition: [{role: '', groupId: []}],
-      tooltip: '',
-      children: [
-        {
-          id: '1-1',
-          name: 'dashboard.menu.kpi.performance',
-          icon: 'dashboard',
-          link: 'dashboard',
-          accessCondition: [{role: '', groupId: []}],
-          tooltip: '',
-          children: []
-        }, {
-          id: '1-2',
-          name: 'dashboard.menu.kpi.configure',
-          icon: 'dashboard',
-          link: 'dashboard',
-          accessCondition: [{role: '', groupId: []}],
-          tooltip: '',
-          children: []
-        },
-      ]
-    },
-    {
-      id: '2',
-      name: 'dashboard.menu.measure',
-      icon: 'dashboard',
-      link: 'dashboard',
-      accessCondition: [{role: '', groupId: []}],
-      tooltip: '',
-      children: [
-        {
-          id: '1-1',
-          name: 'Performance',
-          icon: 'dashboard',
-          link: 'dashboard',
-          accessCondition: [{role: '', groupId: []}],
-          tooltip: '',
-          children: [{}]
-        }, {
-          id: '1-2',
-          name: 'Configure',
-          icon: 'dashboard',
-          link: 'dashboard',
-          accessCondition: [{role: '', groupId: []}],
-          tooltip: '',
-          children: [{}]
-        },
-      ]
-    },
-    {
-      id: '3',
-      name: 'dashboard.menu.dimension',
-      icon: 'dashboard',
-      link: 'dashboard',
-      accessCondition: [{role: '', groupId: []}],
-      tooltip: 'پیشخوان',
-      children: [
-        {
-          id: '1-1',
-          name: 'Performance',
-          icon: 'dashboard',
-          link: 'dashboard',
-          accessCondition: [{role: '', groupId: []}],
-          tooltip: '',
-          children: []
-        }, {
-          id: '1-2',
-          name: 'Configure',
-          icon: 'dashboard',
-          link: 'dashboard',
-          accessCondition: [{role: '', groupId: []}],
-          tooltip: '',
-          children: [{}]
-        },
-      ]
-    }
-  ];
   chatMessage = {chatUpdate: 0, text: ''};
   maxWidget = {currentWidget: {}, active: false};
   addWidgetModal = false;
@@ -199,13 +118,24 @@ export class DefaultComponent implements OnInit {
     children: false
   };
   constructor(
-    public lang: LanguageService
+    public lang: LanguageService,
+    private api: ApiService
   ) { }
 
   ngOnInit() {
     this.currentSummuries = this.summeries[0];
   }
 
+  callApi() {
+    const req = this.api.getInfo().dashboard.widgets;
+    req.body = {
+
+    };
+    this.api.callApi(req)
+      .subscribe(res => {
+
+      });
+  }
   selectSummuries(item) {
     console.log('iiii', item);
     this.summeries.forEach(x => x.selected = false);

@@ -8,10 +8,10 @@ import {LanguageService} from '../../../public/core/services/language/language.s
 })
 export class ToolbarComponent implements OnInit {
   colorStyle = [
-    {name: 'default-theme', color: 'blue', icon: 'lens', label: 'Light Blue'},
+    {name: 'default-theme', color: 'blue', icon: 'lens', label: 'Light'},
     {name: 'second-theme', color: '#ff4081', icon: 'lens', label: 'Light Pink'},
-    {name: 'third-theme', color: 'blue', icon: 'lens', label: 'Dark Blue'},
-    {name: 'forth-theme', color: '#ff4081', icon: 'lens', label: 'Dark Pink'},
+    // {name: 'third-theme', color: 'blue', icon: 'lens', label: 'Dark Blue'},
+    // {name: 'forth-theme', color: '#ff4081', icon: 'lens', label: 'Dark Pink'},
   ];
   languageList = [
     {text: 'English', value: 'en'},
@@ -43,7 +43,7 @@ export class ToolbarComponent implements OnInit {
 
   requestFullScreen() {
     const documen: any = document;
-    const docElm: any = document.querySelector('#toolbar');
+    const docElm: any = document.querySelector('#main-page');
     const isInFullScreen = (document['fullscreenElement'] && document['fullscreenElement'] !== null) ||
       (document['webkitFullscreenElement'] && document['webkitFullscreenElement'] !== null) ||
       (documen.mozFullScreenElement && documen.mozFullScreenElement !== null) ||

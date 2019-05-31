@@ -8,5 +8,14 @@ export const info = {
         password: <string> null,
       }
     }
+  },
+  dashboard: {
+    widgets: {
+      url: '',
+      method: '',
+      body: {
+
+      }
+    }
   }
 };
