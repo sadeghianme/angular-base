@@ -6,6 +6,4 @@ defaultResponseTime = 10;
 
 expiredSession = 1400;
 
-dialogflow = {
-  angularBot: 'e3698bd8ffe3442096579b27b54f6339'
-};
+flowDailog = 'e3698bd8ffe3442096579b27b54f6339';

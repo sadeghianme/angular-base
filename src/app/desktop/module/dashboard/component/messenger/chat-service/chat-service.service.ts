@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ApiAiClient} from 'api-ai-javascript/es6/ApiAiClient';
 import {BehaviorSubject} from 'rxjs';
 
-declare const dialogflow: any;
+declare const flowDailog: any;
 
 export class Message {
   constructor(public content: string, public sentBy: string, public time: string) {}
@@ -11,8 +11,7 @@ export class Message {
   providedIn: 'root'
 })
 export class ChatServiceService {
-
-  readonly token = dialogflow.angularBot;
+  token = 'e3698bd8ffe3442096579b27b54f6339'; // flowDailog;
   readonly client = new ApiAiClient({accessToken: this.token});
   converstation = new BehaviorSubject<Message[]>([]);
   constructor() { }
