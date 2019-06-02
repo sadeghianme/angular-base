@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Chart} from 'angular-highcharts';
+import {CommonService} from "../../../../../../public/core/services/common/common.service";
+
 declare const $: any;
 @Component({
   selector: 'app-chart',
@@ -7,11 +9,15 @@ declare const $: any;
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
-  @Input() data: any;
   chart: any;
-  constructor() { }
+  chartId: string;
+  @Input() data: any;
+  constructor(
+    private common: CommonService
+  ) { }
 
   ngOnInit() {
+    this.chartId = this.common.generateRandomString();
     // console.log(this.data)
     if (this.data && this.data.config) {
       this.init();
@@ -38,14 +44,23 @@ export class ChartComponent implements OnInit {
   }
 
   init() {
+    // let chartSize: any;
+    // $chart.css('width', $('#' + this.chartId).width());
+    // $chart.css('height', $('#' + this.chartId).height());
     this.chart = new Chart({
       // colors: ['#2f7ed8', '#910000', '#8bbc21', '#1aadce'],
+      exporting: {
+        enabled: this.data.config.export || false
+      },
       chart: {
+        renderTo: this.chartId,
         reflow: true,
         // margin: .5, //removes all margin
         backgroundColor: '#ffffff',
         type: this.data.config.type || 'line',
-        height: (10 / 16 * 100) + '%',
+        // height: '300px', //(11 / 16 * 100) + '%',
+
+
         // animation: {
         //   duration: 1000,
         //   easing: 'easeOutBounce'

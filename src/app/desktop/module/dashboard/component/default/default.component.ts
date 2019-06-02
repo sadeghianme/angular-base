@@ -93,7 +93,8 @@ export class DefaultComponent implements OnInit {
    //   config: {type: 'column', yAxis: {title: 'row', showLabel: true}, xAxis: {title: 'row', showLabel: true}}},
 
    {id: '6', title: 'RAN', width: '150px', height: '150px', type: 'sticky', visible: true,
-     data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
+     data: [{title: 'No. O. Sites Operational', value: '133 | 112'},
+       {title: 'Software License Status', value: 'green', showAsIcon: true}]},
    {id: '7', title: 'Backhaul', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
    {id: '8', title: 'GC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
  {id: '6', title: 'CDC-vIMS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
@@ -157,7 +158,10 @@ export class DefaultComponent implements OnInit {
     }
   }
 
-  maximizeWidget(item) {
+  maximizeWidget(item, from) {
+    if (from === 'header') {
+      item.config.export = true;
+    }
     item.maximize = !item.maximize;
     this.maxWidget.active = true;
     this.maxWidget.currentWidget = item;

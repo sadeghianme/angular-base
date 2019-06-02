@@ -1,0 +1,155 @@
+{
+  "configVersion": 1,
+  "timestamp": 1559375053620,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/6.c05669c3d0c112d9f445.js",
+        "/7.1aae04abb0214215ce75.js",
+        "/8.30b66f6bbb7fa24fd0a9.js",
+        "/common.f4d4670141488348b2c0.js",
+        "/es2015-polyfills.01deec5b2033b45aed7c.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.5992d6424e61b7aaf078.js",
+        "/polyfills.481858ef51fe27531859.js",
+        "/runtime.62be5a64f89797cf08a3.js",
+        "/styles.e84d9ce4f13673958327.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/RakutenGlobal-B.44049eb3b6a5709b18f0.otf",
+        "/RakutenGlobal-B.f3cda4150f8f5ea53f2c.woff",
+        "/RakutenGlobal-R.70910e03f05423d8f243.woff",
+        "/RakutenGlobal-R.a95f2035614a9c7d2e23.otf",
+        "/assets/config.js",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/messages/message.json",
+        "/assets/resources/fonts-icon/rex-icon.eot",
+        "/assets/resources/fonts-icon/rex-icon.svg",
+        "/assets/resources/fonts-icon/rex-icon.ttf",
+        "/assets/resources/fonts-icon/rex-icon.woff",
+        "/assets/resources/fonts-icon/rex-icon.woff2",
+        "/assets/resources/fonts/RakutenGlobal-B oblique.otf",
+        "/assets/resources/fonts/RakutenGlobal-B.otf",
+        "/assets/resources/fonts/RakutenGlobal-B.woff",
+        "/assets/resources/fonts/RakutenGlobal-R oblique.otf",
+        "/assets/resources/fonts/RakutenGlobal-R.otf",
+        "/assets/resources/fonts/RakutenGlobal-R.woff",
+        "/assets/resources/fonts/Supported Language_対応言語.txt",
+        "/assets/resources/fonts/[Important][Please Read].txt",
+        "/assets/resources/jquery/jquery-3.4.0.min.js",
+        "/assets/resources/logo/logo.svg",
+        "/rex-icon.475cbf1c14a9e5a28caf.woff",
+        "/rex-icon.ac2accb6c3f34861957f.eot",
+        "/rex-icon.f537c85c6dd0c8fe2bca.woff2"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-freshness",
+      "patterns": [
+        "\\/new"
+      ],
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": 3600000,
+      "timeoutMs": 10000,
+      "version": 1
+    },
+    {
+      "name": "api-performance",
+      "patterns": [
+        "\\/",
+        "\\/jobs",
+        "\\/show",
+        "\\/ask"
+      ],
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": 86400000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/6.c05669c3d0c112d9f445.js": "5057b6da44a678a0ed3fcf55cf1140f9d1b66e5d",
+    "/7.1aae04abb0214215ce75.js": "641413f39328b53143715a44c3fa723b9f1f2037",
+    "/8.30b66f6bbb7fa24fd0a9.js": "b19411c94c5f5e8ca52b9fecc65891f0e0452825",
+    "/RakutenGlobal-B.44049eb3b6a5709b18f0.otf": "794f1f29576ebc5b89254975afa68a5b11a2224e",
+    "/RakutenGlobal-B.f3cda4150f8f5ea53f2c.woff": "a7723c4e745b5ec3beef078412674b19e33844f2",
+    "/RakutenGlobal-R.70910e03f05423d8f243.woff": "fe3a7d86aa7cbc879f8287d75e5d794e5e3a171f",
+    "/RakutenGlobal-R.a95f2035614a9c7d2e23.otf": "14aa259bab06a37541bbbb174c48f028c5cdc749",
+    "/assets/config.js": "fd3ba491572a944d0eacf3406a2e0944ce88a276",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/messages/message.json": "1f3fc6f68edc24397b19774e94bcdb83245dea43",
+    "/assets/resources/fonts-icon/rex-icon.eot": "7e625aa1c1b76855df6c78dedcded5330c008ea9",
+    "/assets/resources/fonts-icon/rex-icon.svg": "c95e86b826c362fb033e6ea77387953cbe04eead",
+    "/assets/resources/fonts-icon/rex-icon.ttf": "21b691a64f7f690c591c2cd61de983507fb23e49",
+    "/assets/resources/fonts-icon/rex-icon.woff": "da77f08a507f355ff90462545914870b63a82268",
+    "/assets/resources/fonts-icon/rex-icon.woff2": "38277ebf33d2bfaa09f094b2fff9e3649bae3fa3",
+    "/assets/resources/fonts/RakutenGlobal-B oblique.otf": "87da04cbf33f396f859859752ed44d6f8cdf1d12",
+    "/assets/resources/fonts/RakutenGlobal-B.otf": "794f1f29576ebc5b89254975afa68a5b11a2224e",
+    "/assets/resources/fonts/RakutenGlobal-B.woff": "a7723c4e745b5ec3beef078412674b19e33844f2",
+    "/assets/resources/fonts/RakutenGlobal-R oblique.otf": "e9c1fc86594210e4227344de9254504c0dec2473",
+    "/assets/resources/fonts/RakutenGlobal-R.otf": "14aa259bab06a37541bbbb174c48f028c5cdc749",
+    "/assets/resources/fonts/RakutenGlobal-R.woff": "fe3a7d86aa7cbc879f8287d75e5d794e5e3a171f",
+    "/assets/resources/fonts/Supported Language_対応言語.txt": "6b9f881ea47b85342e087d72b2c87bd9999552b1",
+    "/assets/resources/fonts/[Important][Please Read].txt": "cca1c7765c67dc1370d65646096e957ba0ff54ed",
+    "/assets/resources/jquery/jquery-3.4.0.min.js": "37137106a33d8dfbb33c3fb720d21d8494d6543c",
+    "/assets/resources/logo/logo.svg": "10d5ea0f038bdb2f9c5d83b5722b4daffd6913a9",
+    "/common.f4d4670141488348b2c0.js": "5ed9213d05fc476b18dbed3985974098de674fc1",
+    "/es2015-polyfills.01deec5b2033b45aed7c.js": "ddc4884f07efd3b0454e560ff8808c45a7fd49d0",
+    "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/index.html": "fcfe80b4729c36acd9f25f988c0b96a234c425b1",
+    "/main.5992d6424e61b7aaf078.js": "a5451018856a1fe878712542351e7e1b0522e86a",
+    "/polyfills.481858ef51fe27531859.js": "ef448ddee57ecea8f1f0157e9e684b2c871e2e39",
+    "/rex-icon.475cbf1c14a9e5a28caf.woff": "da77f08a507f355ff90462545914870b63a82268",
+    "/rex-icon.ac2accb6c3f34861957f.eot": "7e625aa1c1b76855df6c78dedcded5330c008ea9",
+    "/rex-icon.f537c85c6dd0c8fe2bca.woff2": "38277ebf33d2bfaa09f094b2fff9e3649bae3fa3",
+    "/runtime.62be5a64f89797cf08a3.js": "e44903fe4da33dd245265f1031261093ad275cf6",
+    "/styles.e84d9ce4f13673958327.css": "3b17d1b397e7dec248011d12d7c4208cb86d8b64"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

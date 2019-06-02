@@ -28,18 +28,22 @@ export class MapChartComponent implements OnInit {
   data = [
     {
       'hc-key': 'jp-hs',
-      value: 8
+      value: 8,
+      color: 'red'
     }, {
       'hc-key': 'jp-3480',
-      value: 8
+      value: 8,
+      color: 'green'
     },
     {
       'hc-key': 'jp-hk',
-      value: 10
+      value: 10,
+      color: 'orange'
     },
     {
       'hc-key': 'jp-fs',
-      value: 2
+      value: 2,
+      color: 'blue'
     }
   ];
   constructor() { }

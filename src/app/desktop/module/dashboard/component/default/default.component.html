@@ -1,7 +1,7 @@
 <div class="dashboard">
   <div class="dashboard-header">
     <div class="dashboard-header-left">
-      <div class="dashboard-header-left-box" *ngFor="let item of headerWidgets" (click)="maximizeWidget(item)">
+      <div class="dashboard-header-left-box" *ngFor="let item of headerWidgets" (click)="maximizeWidget(item, 'header')">
         <app-header-widget
           [data]="item">
         </app-header-widget>

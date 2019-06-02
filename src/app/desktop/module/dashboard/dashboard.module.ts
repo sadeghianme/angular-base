@@ -10,19 +10,22 @@ import { DragComponent } from './component/drag/drag.component';
 import {CoreModule} from '../../../public/core/core.module';
 import {ChartModule, HIGHCHARTS_MODULES} from 'angular-highcharts';
 import * as more from 'highcharts/highcharts-more.src';
-import * as highcharts from 'highcharts';
-import * as exporting from 'highcharts/modules/exporting.src';
-import * as offline from 'highcharts/modules/offline-exporting';
+import * as Highcharts from 'highcharts';
+import HC_exporting from 'highcharts/modules/exporting';
+// import * as exporting from 'highcharts/modules/exporting.src';
+import * as offline from 'highcharts/modules/offline-exporting.src';
 import * as highmaps from 'highcharts/modules/map.src';
 import * as highstock from 'highcharts/modules/stock.src';
+// exporting(Highcharts);
+HC_exporting(Highcharts);
+// offline(highcharts);
+
 import { StickyComponent } from './component/widgets/sticky/sticky.component';
 import { MapChartComponent } from './component/widgets/map-chart/map-chart.component';
 import { ChartComponent } from './component/widgets/chart/chart.component';
 import { TableComponent } from './component/widgets/table/table.component';
 import { HeaderWidgetComponent } from './component/widgets/header-widget/header-widget.component';
 import { MessengerComponent } from './component/messenger/messenger.component';
-// exporting(highcharts);
-// offline(highcharts);
 @NgModule({
   declarations: [DefaultComponent, WidgetBoxComponent, DragComponent, StickyComponent, MapChartComponent, ChartComponent, TableComponent, HeaderWidgetComponent, MessengerComponent],
   imports: [
@@ -34,7 +37,7 @@ import { MessengerComponent } from './component/messenger/messenger.component';
     ChartModule
   ],
   providers: [
-    { provide: HIGHCHARTS_MODULES, useFactory: () => [ more, exporting ] }, // add as factory to your providers
+    // { provide: HIGHCHARTS_MODULES, useFactory: () => [ more, exporting ] }, // add as factory to your providers
     { provide: HIGHCHARTS_MODULES, useFactory: () => [ highmaps ] },
     { provide: HIGHCHARTS_MODULES, useFactory: () => [ highstock ] }
   ]
