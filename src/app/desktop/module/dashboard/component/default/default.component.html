@@ -37,16 +37,6 @@
         <app-button btnType="circle-simple" iconName="chevron_left" (clickButton)="prevNextSummuries('prev')"></app-button>
         <app-button btnType="circle-simple" iconName="chevron_right" (clickButton)="prevNextSummuries('next')"></app-button>
       </div>
-<!--      <div class="dashboard-body-menu-item"-->
-<!--        *ngFor="let menu of menus">-->
-<!--        <label>{{lang.ln(menu.name)}}</label>-->
-<!--        <div class="dashboard-body-menu-subItem"-->
-<!--          *ngFor="let subMenu of menu.children">-->
-<!--          {{lang.ln(subMenu.name)}}-->
-<!--          <i *ngIf="subMenu.children && subMenu.children.length" class="material-icons">arrow_right</i>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <app-button btnType="simple" [value]="'New Dashboard'" (clickButton)="addDashboardModal=true"></app-button>-->
     </div>
     <div class="dashboard-body-grid"
          [style.width]="openChatMessenger?'calc(100% - 572px)' : 'calc(100% - 266px)'"
@@ -90,6 +80,8 @@
     <div class="dashboard-body-right" *ngIf="openChatMessenger"
          [style.transform]="!openChatMessenger ? 'translate(320px)' : null">
       <app-messenger
+        [message]="chatMessage.text"
+        [update]="chatMessage.update"
         (closeChat)="closeChatMessenger($event)">
       </app-messenger>
     </div>
@@ -171,15 +163,18 @@
   <ng-container *ngIf="maxWidget.active">
     <app-modal
       [showFooter]="false"
-      [type]="'empty'"
+      [isMaximize]="{state: false, visible: true}"
+      (closeModal)="maxWidget.active = false"
+      [title]="maxWidget.currentWidget.title"
       [modalSize]="'large'">
-      <div modal-container class="modal-body" >
-        <app-widget-box
-          [actions]="{max: false, close: true, report: true}"
-          [title]="maxWidget.currentWidget.title"
-          (resultRowData)="returnRowData($event)"
-          (removeClick)="maxWidget.active = false"
-          [data]="maxWidget.currentWidget"></app-widget-box>
+      <div modal-container class="modal-body">
+        <div class="modal-container">
+          <app-widget-box
+            [actions]="{max: false, close: false, report: false}"
+            (resultRowData)="returnRowData($event)"
+            [data]="maxWidget.currentWidget">
+          </app-widget-box>
+        </div>
       </div>
     </app-modal>
   </ng-container>

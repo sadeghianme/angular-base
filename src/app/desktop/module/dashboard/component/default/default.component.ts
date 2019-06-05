@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, CdkDragEnter, moveItemInArray} from '@angular/cdk/drag-drop';
 import {LanguageService} from '../../../../../public/core/services/language/language.service';
-import {ApiService} from "../../../../../public/core/services/api/api.service";
+import {ApiService} from '../../../../../public/core/services/api/api.service';
+import {WidgetsService} from "../../../../../public/core/services/mapper/widgets.service";
 
 declare const $: any;
 @Component({
@@ -36,11 +37,11 @@ export class DefaultComponent implements OnInit {
     //   config: {type: 'column', title: 'ty', subtitle: '', showTooltip: true,
     //     xAxis: {title: 'ppp', showLabel: true, categories: ['q', 'c', 'r'] }, yAxis: {title: 'ttt', showLabel: true, categories: null  },
     //     legend: {layout: '', enabled: true, floating: true }}},
-    {id: '1', title: 'Voice', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
-    {id: '2', title: 'Data', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
-    {id: '3', title: 'SMS', width: '320px', minWidth: '32%', height: '390px', type: 'map', visible: true, data: [], config: {type: 'map', }},
+    {id: '1', title: 'Voice', width: '320px', minWidth: '32%', height: '350px', type: 'map', visible: true, data: [], config: {type: 'map', }},
+    {id: '2', title: 'Data', width: '320px', minWidth: '32%', height: '350px', type: 'map', visible: true, data: [], config: {type: 'map', }},
+    {id: '3', title: 'SMS', width: '320px', minWidth: '32%', height: '350px', type: 'map', visible: true, data: [], config: {type: 'map', }},
 
-    {id: '4', title: 'Metrics', width: '320px', minWidth: '40%', height: '320px', type: 'table', visible: true,
+    {id: '4', title: 'Metrics', width: '320px', minWidth: '40%', height: '350px', type: 'table', visible: true,
       data: {columns: [{text: '', value: 'title'}, {text: 'CPU', value: 'cpu'}, {text: 'RAM', value: 'ram'}, {text: 'Ava.', value: 'ava'}, {text: 'Op. T.', value: 'opt'}, {text: 'Int. U.', value: 'intU'}, {text: 'Sto.', value: 'sto'}],
         rows: [
           {title: 'RAN', cpu: 'green', ram: 'red', ava: 'green', opt: 'orange', intU: 'green', sto: 'red'},
@@ -49,7 +50,7 @@ export class DefaultComponent implements OnInit {
           {title: 'CDC', cpu: 'orange', ram: 'green', ava: 'red', opt: 'red', intU: 'green', sto: 'red'},
           {title: 'INET Core', cpu: 'red', ram: 'green', ava: 'red', opt: 'green', intU: 'green', sto: 'red'},
         ]}, config: {type: 'icon'}},
-    {id: '5', title: 'Services', width: '280px', minWidth: '28%', height: '320px', type: 'table', visible: true,
+    {id: '5', title: 'Alarms', width: '280px', minWidth: '28%', height: '350px', type: 'table', visible: true,
       data: {columns: [{text: '', value: 'title'},
           {text: 'Critical', value: 'critical', color: 'red'},
           {text: 'Major', value: 'major', color: 'orange'},
@@ -63,7 +64,7 @@ export class DefaultComponent implements OnInit {
           {title: 'CDC', critical: '162', major: '34', minor: '35'},
           {title: 'Bo', critical: '12', major: '34', minor: '345'},
           ]}, config: {type: 'text'}},
-    {id: '6', title: 'Alarms', width: '280px', minWidth: '24%', height: '320px', type: 'table', visible: true,
+    {id: '6', title: 'Services', width: '280px', minWidth: '24%', height: '350px', type: 'table', visible: true,
       data: {columns: [{text: '', value: 'title'},
           {text: 'RAN', value: 'ran'},
           {text: 'EPC', value: 'epc'},
@@ -92,18 +93,39 @@ export class DefaultComponent implements OnInit {
    // {id: '1.2', title: 'RAP', width: '320px', height: '280px', type: 'chart', visible: true, data: [3, 12, 7],
    //   config: {type: 'column', yAxis: {title: 'row', showLabel: true}, xAxis: {title: 'row', showLabel: true}}},
 
-   {id: '6', title: 'RAN', width: '150px', height: '150px', type: 'sticky', visible: true,
-     data: [{title: 'No. O. Sites Operational', value: '133 | 112'},
-       {title: 'Software License Status', value: 'green', showAsIcon: true}]},
-   {id: '7', title: 'Backhaul', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
-   {id: '8', title: 'GC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
- {id: '6', title: 'CDC-vIMS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
-   {id: '7', title: 'CDC-vEPC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
-   {id: '8', title: 'CDC-vRCS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
-   {id: '8', title: 'INET Core', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
-   {id: '8', title: 'IoT', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
+   {id: '6', title: 'RAN', width: '180px', height: '180px', type: 'sticky', visible: true,
+     data: {
+       operation_status: {total: 500, ops: 200}, software_license: {value: 'orange'}
+     }},
+    {id: '6', title: 'BH', width: '170px', height: '170px', type: 'sticky', visible: true,
+     data: {
+       operation_status: {total: 500, ops: 200}, software_license: {value: 'red'}
+     }},
+    {id: '6', title: 'GC', width: '170px', height: '170px', type: 'sticky', visible: true,
+     data: {
+       operation_status: {total: 500, ops: 200}, software_license: {value: 'red'}
+     }},
+    {id: '6', title: 'CDC', width: '170px', height: '170px', type: 'sticky', visible: true,
+     data: {
+       operation_status: {total: 500, ops: 200}, software_license: {value: 'red'}
+     }},
+    {id: '6', title: 'CDC', width: '170px', height: '170px', type: 'sticky', visible: true,
+     data: {
+       operation_status: {total: 500, ops: 200}, software_license: {value: 'red'}
+     }},
+    {id: '6', title: 'BH', width: '170px', height: '170px', type: 'sticky', visible: true,
+     data: {
+       operation_status: {total: 500, ops: 200}, software_license: {value: 'red'}
+     }}
+ //   {id: '7', title: 'Backhaul', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
+ //   {id: '8', title: 'GC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
+ // {id: '6', title: 'CDC-vIMS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '133 | 112'}, {title: 'Software License Status', value: 'green', showAsIcon: true}]},
+ //   {id: '7', title: 'CDC-vEPC', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'orange', showAsIcon: true}]},
+ //   {id: '8', title: 'CDC-vRCS', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
+ //   {id: '8', title: 'INET Core', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
+ //   {id: '8', title: 'IoT', width: '150px', height: '150px', type: 'sticky', visible: true, data: [{title: 'No. O. Sites Operational', value: '5343 | 4112'}, {title: 'Software License', value: 'red', showAsIcon: true}]},
   ];
-  chatMessage = {chatUpdate: 0, text: ''};
+  chatMessage = {update: 0, text: ''};
   maxWidget = {currentWidget: {}, active: false};
   addWidgetModal = false;
   currentSummuries: any;
@@ -120,11 +142,16 @@ export class DefaultComponent implements OnInit {
   };
   constructor(
     public lang: LanguageService,
-    private api: ApiService
+    private api: ApiService,
+    private mapper: WidgetsService
   ) { }
 
   ngOnInit() {
     this.currentSummuries = this.summeries[0];
+    console.log('metric', this.mapper.convertToMetric());
+    console.log('alarms', this.mapper.convertToAlarms());
+    console.log('sticky', this.mapper.convertToSticky());
+    console.log('service', this.mapper.convertToService());
   }
 
   callApi() {
@@ -165,18 +192,14 @@ export class DefaultComponent implements OnInit {
     item.maximize = !item.maximize;
     this.maxWidget.active = true;
     this.maxWidget.currentWidget = item;
-    // setTimeout(() => {
-    //   $('#highchart').highcharts().reflow();
-    //   $('#map-chart').highcharts().reflow();
-    // }, 100);
   }
 
   returnRowData(row) {
-    console.log('*****', row);
     this.closeChatMessenger(true);
-    this.chatMessage.chatUpdate ++;
-    this.chatMessage.text = JSON.stringify(row) + this.chatMessage.chatUpdate;
+    this.chatMessage.update ++;
+    this.chatMessage.text = JSON.stringify(row);
   }
+
   closeChatMessenger(state) {
     this.openChatMessenger =  state;
   }

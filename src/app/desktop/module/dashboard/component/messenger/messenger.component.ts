@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {ChatServiceService, Message} from './chat-service/chat-service.service';
 import {Observable} from 'rxjs';
 import { scan } from 'rxjs/operators';
@@ -9,7 +9,7 @@ declare const $: any;
   templateUrl: './messenger.component.html',
   styleUrls: ['./messenger.component.scss']
 })
-export class MessengerComponent implements OnInit {
+export class MessengerComponent implements OnInit, OnChanges {
   chatState = 'bot';
   viberChats = [
     {title: 'Mehdi', time: '10:55', icon: 'user', message: 'Hello, I have a Problem with this site'},
@@ -17,10 +17,18 @@ export class MessengerComponent implements OnInit {
   ];
   messages: Observable<Message[]>;
   fromValue: string;
+  @Input() message = '';
+  @Input() update = 0;
   @Output() closeChat = new EventEmitter();
   constructor(
     private chat: ChatServiceService
   ) { }
+
+  ngOnChanges(changes) {
+    if (changes.hasOwnProperty('update') && this.update) {
+      this.chat.convers(this.message);
+    }
+  }
 
   ngOnInit() {
     this.messages = this.chat.converstation.asObservable()

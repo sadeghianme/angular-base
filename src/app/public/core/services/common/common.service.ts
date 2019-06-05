@@ -60,27 +60,27 @@ export class CommonService {
 
   getDownloadSampleUrl(from, name) {
     // TODO if there is no file then return empty
-    return new Promise(res => {
-      let path = '';
-      switch (from) {
-        case 'logestic': {
-          path = downloadFile.host + ':' + downloadFile.port + '/logesticFile/' + name + '.csv';
-          this.api.downloadFileApi(path)
-            .then(data => {
-              return res(data);
-            });
-          break;
-        }
-        case 'call': {
-          path = downloadFile.host + ':' + downloadFile.port + '/callFile/' + name + '.xlsx';
-          this.api.downloadFileApi(path)
-            .then(data => {
-              return res(data);
-            });
-          break;
-        }
-      }
-    });
+    // return new Promise(res => {
+    //   let path = '';
+    //   switch (from) {
+    //     case 'logestic': {
+    //       path = downloadFile.host + ':' + downloadFile.port + '/logesticFile/' + name + '.csv';
+    //       this.api.downloadFileApi(path)
+    //         .then(data => {
+    //           return res(data);
+    //         });
+    //       break;
+    //     }
+    //     case 'call': {
+    //       path = downloadFile.host + ':' + downloadFile.port + '/callFile/' + name + '.xlsx';
+    //       this.api.downloadFileApi(path)
+    //         .then(data => {
+    //           return res(data);
+    //         });
+    //       break;
+    //     }
+    //   }
+    // });
   }
 
   numberWithSpaces(value) {

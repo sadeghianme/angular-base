@@ -1,21 +1,23 @@
 <div class="sticky">
-  <div class="sticky-row" *ngFor="let item of data.data">
-    <label class="title">{{item.title}}</label>
-    <ng-container *ngIf="item.showAsIcon">
-      <div class="icon">
-        <i [style.color]="item.value==='green'?'green':null" class="material-icons">lens</i>
-        <i [style.color]="item.value==='orange'?'orange':null" class="material-icons">lens</i>
-        <i [style.color]="item.value==='red'?'red':null" class="material-icons">lens</i>
-      </div>
-    </ng-container>
-  <ng-container *ngIf="!item.showAsIcon">
+<!--  <div class="sticky-row" *ngFor="let item of data.data">-->
+  <div class="sticky-row">
+    <label class="title">No. O. Sites Operational</label>
     <label class="value">
-      {{item.value.split('|')[0]+' | '}}
+      {{data.data.operation_status.total+' | '}}
+<!--      {{item.value.split('|')[0]+' | '}}-->
     </label>
     <label class="value" style="color: black; font-weight: 600">
-      {{item.value.split('|')[1]}}
+      {{data.data.operation_status.ops}}
+      <!--      {{item.value.split('|')[1]}}-->
     </label>
-  </ng-container>
+  </div>
+  <div class="sticky-row">
+    <label class="title">Software License Status</label>
+      <div class="icon">
+        <i [style.color]="data.data.software_license.value==='green'?'green':null" class="material-icons">lens</i>
+        <i [style.color]="data.data.software_license.value==='orange'?'orange':null" class="material-icons">lens</i>
+        <i [style.color]="data.data.software_license.value==='red'?'red':null" class="material-icons">lens</i>
+      </div>
   </div>
 <!--  <div class="sticky-box">{{data.value}}<label style="font-size: 20pt">{{data.unit}}</label></div>-->
 </div>

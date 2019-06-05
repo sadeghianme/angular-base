@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Chart} from 'angular-highcharts';
-import {CommonService} from "../../../../../../public/core/services/common/common.service";
+import {CommonService} from '../../../../../../public/core/services/common/common.service';
 
 declare const $: any;
 @Component({
@@ -46,7 +46,8 @@ export class ChartComponent implements OnInit {
   init() {
     // let chartSize: any;
     // $chart.css('width', $('#' + this.chartId).width());
-    // $chart.css('height', $('#' + this.chartId).height());
+    const height = $('#' + this.chartId).height();
+    // console.log('height ---> ', height, $('#' + this.chartId));
     this.chart = new Chart({
       // colors: ['#2f7ed8', '#910000', '#8bbc21', '#1aadce'],
       exporting: {
@@ -58,7 +59,7 @@ export class ChartComponent implements OnInit {
         // margin: .5, //removes all margin
         backgroundColor: '#ffffff',
         type: this.data.config.type || 'line',
-        // height: '300px', //(11 / 16 * 100) + '%',
+        height: this.data.height || (10 / 16 * 100) + '%',
 
 
         // animation: {

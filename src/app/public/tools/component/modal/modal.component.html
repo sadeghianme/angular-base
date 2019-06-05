@@ -8,14 +8,25 @@
   <div class="public-modal-header" [appDraggableGrid]="true" *ngIf="type!=='empty'">
     <span class="header">{{title}}</span>
     <span class="public-close" >
-      <app-button *ngIf="isHelp.visible" btnType="square-simple" textColor="white" [size]="{height: '38px', width: '38px'}"
-                  [iconName]="'help_outline'" (clickButton)="showMessageBox()">
+      <app-button *ngIf="isHelp.visible"
+                  btnType="circle-simple"
+                  textColor="black"
+                  [size]="{height: '38px', width: '38px'}"
+                  [iconName]="'help_outline'"
+                  (clickButton)="showMessageBox()">
       </app-button>
-      <app-button *ngIf="isMaximize.visible" btnType="square-simple" textColor="white" [size]="{height: '38px', width: '38px'}"
-                  [iconName]="maximize?'fullscreen_exit':'fullscreen'" (clickButton)="maximize = !maximize">
+      <app-button *ngIf="isMaximize.visible"
+                  btnType="circle-simple"
+                  textColor="black"
+                  [size]="{height: '38px', width: '38px'}"
+                  [iconName]="maximize?'fullscreen_exit':'fullscreen'"
+                  (clickButton)="maximize = !maximize">
       </app-button>
-      <app-button btnType="square-simple" textColor="white" [size]="{height: '38px', width: '38px'}"
-                    iconName="clear" (clickButton)="closeModalEvent()">
+      <app-button btnType="circle-simple"
+                  textColor="black"
+                  [size]="{height: '38px', width: '38px'}"
+                  iconName="clear"
+                  (clickButton)="closeModalEvent()">
       </app-button>
     </span>
   </div>
