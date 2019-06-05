@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81839f47-4d9b-4b20-9ad9-da5f5833d4a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/public/core/services/mapper/data.class.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/rakuten-app/6.c05669c3d0c112d9f445.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/rakuten-app/7.1aae04abb0214215ce75.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/rakuten-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/rakuten-app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/rakuten-app/main.5992d6424e61b7aaf078.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/rakuten-app/ngsw.json" beforeDir="false" afterPath="$PROJECT_DIR$/dist/rakuten-app/ngsw.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/rakuten-app/runtime.62be5a64f89797cf08a3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/default/default.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/default/default.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/default/default.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/default/default.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/default/default.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/default/default.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/messenger/messenger.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/messenger/messenger.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/widgets/chart/chart.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/widgets/chart/chart.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/widgets/chart/chart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/widgets/chart/chart.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/widgets/sticky/sticky.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/desktop/module/dashboard/component/widgets/sticky/sticky.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/public/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/public/core/core.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/public/core/services/common/common.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/public/core/services/common/common.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/public/tools/component/modal/modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/public/tools/component/modal/modal.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/public/tools/component/modal/modal.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/public/tools/component/modal/modal.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/messages/message.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/messages/messages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="81839f47-4d9b-4b20-9ad9-da5f5833d4a4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -378,16 +355,15 @@
       <workItem from="1559201578473" duration="620000" />
       <workItem from="1559202339114" duration="554000" />
       <workItem from="1559204506448" duration="830000" />
-      <workItem from="1559265314980" duration="89600000" />
+      <workItem from="1559265314980" duration="89877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91604000" />
+    <option name="totallyTimeSpent" value="91881000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.13277134" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -404,7 +380,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.1375948" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3575298" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
