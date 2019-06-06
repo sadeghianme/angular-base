@@ -45,7 +45,7 @@ export class ApiService {
   }
 
 
-  callApi(path, setToken = true, returnError = false, apiServer = 'kookaat', repeat = false) {
+  callApi(path, setToken = false, returnError = false, apiServer = 'kookaat', repeat = false) {
     // console.log('@@@@@@@@@@@@', path)
     // if (setToken && apiServer === 'kookaat' && this.expired.checkExpiredTime()) {
     //   this.router.navigate(['/auth/login']);

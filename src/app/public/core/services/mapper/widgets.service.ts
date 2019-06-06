@@ -58,14 +58,14 @@ export class WidgetsService {
     }
   }
 
-  convertToMetric = (data?) => {
+  convertToMetric(data?) {
     data = dashboardData.metric;
     const columns = WidgetsService.generateColumn(Object.keys(data[Object.keys(data)[0]]), 3);
     const rows = WidgetsService.generateRows(data, columns, true);
     columns.unshift({text: '', value: 'title'});
 
 
-      return {
+    return {
         id: '4', title: 'Metrics', width: '320px', minWidth: '40%', height: '350px', type: 'table', visible: true,
         data: { columns, rows }, config: {type: 'icon'}
       };

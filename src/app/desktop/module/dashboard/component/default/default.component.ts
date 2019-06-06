@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, CdkDragEnter, moveItemInArray} from '@angular/cdk/drag-drop';
 import {LanguageService} from '../../../../../public/core/services/language/language.service';
 import {ApiService} from '../../../../../public/core/services/api/api.service';
-import {WidgetsService} from "../../../../../public/core/services/mapper/widgets.service";
+import {WidgetsService} from '../../../../../public/core/services/mapper/widgets.service';
 
 declare const $: any;
 @Component({
